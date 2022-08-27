@@ -1,0 +1,75 @@
+10 number cards
+3 power cards
+
+13 in 16 cards
+
+2 in 32 color swap
+1 in 32 draw 4
+
+0 = blue
+1 = red
+2 = green
+3 = yellow
+4 = color swap
+5 = draw 4
+
+
+red = 0
+blue = 1
+green = 2
+yellow = 5
+
+10 = skip
+11 = reverse
+12 = draw 2
+
+HUD Widget #0: player card count
+HUD Widget #1: whose players turn
+
+
+declare global.player[0] with network priority local -- whoever's turn it is
+declare global.player[1] with network priority local -- temp player[]
+
+declare global.timer[0] = 3                          -- map setup timer
+declare global.timer[1] = 3                          -- tip timer
+
+declare global.number[0] with network priority local -- is map setup?
+declare global.number[1] with network priority local -- temp number[1]
+declare global.number[2] with network priority local -- temp number[2]
+declare global.number[3] with network priority local -- temp number[3]
+declare global.number[4] with network priority local -- player turn index
+declare global.number[5] with network priority local -- top card number
+declare global.number[6] with network priority local -- top card color
+declare global.number[7] with network priority local -- player cycle order
+declare global.number[8] with network priority local -- player draw card count
+declare global.number[9] with network priority local -- tip num
+declare global.number[10] with network priority local-- is color mode?
+declare global.number[11] with network priority local-- is picking up?
+
+declare global.object[0] with network priority local -- temp object[0]
+declare global.object[1] with network priority local -- temp object[1]
+declare global.object[2] with network priority local -- temp object[2]
+declare global.object[3] with network priority local -- UNO point
+declare global.object[4] with network priority local -- cs UNO point 1
+declare global.object[5] with network priority local -- cs UNO point 2
+declare global.object[6] with network priority local -- cs UNO point 3
+declare global.object[7] with network priority local -- cs UNO point 4
+
+declare player.number[0] with network priority local -- is player setup?
+declare player.number[1] with network priority local -- is player biped setup?
+declare player.timer[0] = 5                          -- player setup timer
+declare player.timer[1] = 1                          -- pickup timer
+
+declare player.object[0] with network priority local -- player weapon checker
+declare player.number[2] with network priority low   -- player number of cards
+declare player.number[3] with network priority low   -- player card index
+declare player.number[4] with network priority local -- player is turn?
+declare player.number[5] with network priority local -- player is quick shuffling?
+
+declare object.number[0] with network priority local -- card number
+declare object.number[1] with network priority local -- card color
+declare object.player[0] with network priority local -- card owner
+
+
+
+

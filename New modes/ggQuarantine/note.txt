@@ -1,0 +1,2 @@
+latest version of the source code for the gamemode was lost, 
+full documentation from halo customs is provided in the halocustoms docs.txt

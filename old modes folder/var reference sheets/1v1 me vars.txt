@@ -1,0 +1,35 @@
+
+
+
+declare global.number[0] with network priority local -- is map set up?
+declare global.number[1] with network priority local -- event index/is event in progress?
+declare global.number[2] with network priority local -- respawning disabled?
+declare global.number[3] with network priority local -- event timer multiplyer
+declare global.number[4] with network priority local -- temp number[4]
+declare global.number[5] with network priority local -- temp number[5]
+declare global.number[6] with network priority local -- temp number[6]
+declare global.number[7] with network priority local -- event number[7]
+declare global.object[0] with network priority local -- temp object[0]
+declare global.object[1] with network priority local -- Event object[1]
+declare global.object[2] with network priority local -- Event object[2]
+declare global.object[3] with network priority local -- Event object[3]
+declare global.object[4] with network priority local -- Event object[4]
+declare global.object[5] with network priority local -- temp object[5]
+declare global.object[6] with network priority local -- temp object[6]
+declare global.object[7] with network priority local -- temp object[7]
+declare global.player[0] with network priority local -- temp player[0]
+declare global.player[1] with network priority local -- event player[1]
+declare global.timer[0] = 30                         -- time until event
+declare global.timer[1] = 30                         -- event time left
+declare global.timer[2] = 15                         -- match start timer
+declare global.timer[3] = 15                         -- event timer[3]
+
+declare player.number[0] with network priority local -- temp?
+declare player.number[1] with network priority local -- player event index
+declare player.number[2] with network priority local -- is player using armor ability?
+declare player.object[0] with network priority local -- player event object[0]
+declare player.object[1] with network priority local -- player event object[1]
+declare player.timer[0] = 30                         -- time until player event
+declare player.timer[1] = 30                         -- player event time left
+declare player.timer[2] = 3                          -- player projectile event timer
+declare player.timer[3] = 1                          -- player temp timer[3]

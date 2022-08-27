@@ -1,0 +1,330 @@
+gamemode & maps are in my fileshare (GT: Gamergotten) for the xbox dudes out there
+
+this gamemode is released as is, i think i covered every issue, but a few more may turn up.
+anyways,
+
+EDIT: if you play this in custom games, the host player will not see the animations for the zombies walking
+EDIT2: shop is pretty broken, however with 1.3.0, its no longer as broken
+EDIT3: i hope that someday mr megalo himself may see this, to bare witness to one of the greatest megalo magics, of many yet to be discovered
+
+UPDATE (1.3.0)
+FEATURES
+. trusty snoozes scale label
+. wall buy weapons
+. zombies can now be on teams & can fight another
+. Z_Spawners can spawn specific zombie groups
+. Z_ZoneObj now does the invasion gating stuff
+. script option "weakZs" to change zombies to do 4/5 hit kill
+. script option "slowZs" to prevent hotspot zombies from walking faster
+. script option "infection" to enable infection
+. elite special zombies (via Z_Spawner specific zombie groups)
+. monitor zombies (via Z_Spawner specific zombie groups)
+. Z_DelZomb can now cause explosions, if specified via spawn sequence
+
+FIXES
+. now uses infection teams (team1 survivors, team2 zombies)
+. shrunk warthog turret from shadow label
+. random objects wont scale issue
+. door visual price fix
+. store visual price fix
+. store 16 player fail
+
+NOTES
+. Z_Shadow now uses trusty snooze scaling (to save script space)
+. Z_Spawner now assigns zombie teams via Z_Spawner object team (need to change them from neutral to blue team)
+
+
+
+GAME MECHANICS
+
+the objective of this gamemode (well depending on how players configure the script options) is to reach "Hotspots" and the clear them, it may take several "waves" to clear a hotspot
+to get to these objectives players will be faced with hordes of quite convincing zombie AI, in which they must eliminate to both reach & clear the "Hotspots" (hotspots, being a place where zombie will be more active & be stronger and faster)
+
+default gametype configurations make it so the side objective is to survive while doing so, if a zombie gets close enough to a player, it will attack that player
+the zombie will do a little sword materializing animation and the player will lose up to 50% of their health
+theres also a really neat knockback/explosion feature that was provided by the Rabid Magicman, which makes being hit a little more convincing, thanks for that :)
+if a player loses all its health then it will be subject to die, or rather, get downed.
+if a player is downed, they must wait for another player to come and revive them, (due to limitations, the revived player is given a fresh body with the default armor)
+if there are no players to revive them (everyone is downed or dead) then the game will end on with a lose, because the survivors failed their objective
+
+once a hotspot is cleared, a new one will be selected, so the players can progress forward in the map, where it be a random hotspot or going in order
+
+when the amount of zombies reaches a specified minimum, then a countdown will start and upon reaching 0 a new "wave" will start
+this wave system doesn't really follow COD zombie's wave system, but i guess you could kinda make it work like that if you wanted
+
+there are a couple of balancing features in place by default to scale the difficulty for a variable range of players (so 16 players cant just smash through everything)
+first, the game will scale every players damage based on how many players there are in the game
+then, when a new wave starts it will see how many players are currently alive and then adjust the health of hotspot zombies that are about to be spawned
+
+Misc features include: (these weren't on the map, but are in the gamemode)
+- the store: which is an interactable object that players can purchase items from, using their hard earned points
+- doors: objects which players can use points to remove, obstacles if you will
+- flashlights: kinda, just the basic white orbs that produce light (setup with forge labels)
+- object shadows&scaling: thanks to Weesee for discovering this theres a label to turn objects into shadow casting objects & to scale them (via spawn sequence)
+- zombie barriers: there are labels that allow zombies to do physical and theoretical damage to objects, which allows them to clear them out of the way, destroy vehicles, etc
+- wall weapons: works similar to the store but you can only purchase that one item
+Misc mechanics include:
+- extra health regen: players can now regen up to 100% health
+
+
+the rules of this mode are pretty flexible and you can change them to suit your needs, so long as it involves zombies & shooting lol
+
+ZOMBIE TYPES
+there are a couple of types of zombies, but there are two categories for them
+
+Category 1 are the normal zombies
+variants include:
+- default zombie (mark V)
+- elite minor zombie
+- elite spec ops zombie
+- elite ranger zombie
+
+Category 2 are the hotspot zombies (only being able to spawn in the hotspot) they do more damage and move faster
+variants include:
+- carter zombie
+- jun zombie
+- elite ultra zombie
+- elite zealot zombie
+- elite general zombie
+- elite officer zombie
+
+And then there are the special zombies, which can be either category 1 or 2, but their special traits remain the same
+- fast zombie (kat): moves slightly faster
+- climber zombie (hazop): can climb walls
+- bomber zombie (emile): will explode when gets close to players
+
+Lastly the Misc zombies (these can only be spawned with Z_Spawners that have specific spawn sequences), these can be either hotspot or non hotspot zombies (i think)
+- fast elite: moves slightly faster
+- climber elite: can climb walls
+- monitor: cool
+
+All elite zombies get 2x heath & shields, this stacks with the hotspot modifier, so they can be really tough in hotspots
+Monitors (which i added cause they're funny) will have half of the Health & Shields as a spartan zombie, although they can probably receive the hotspot bonus health & shields
+Also, they will float upwards, so its advised to put a roof above them or they will float up into oblivion
+
+
+thanks to:
+the amazing DavidJCobb for RVT
+weesee & rabid magicman for their respective contributions
+slen for helping with the quarantineground map
+and the rest of the gametypers for jumping in and giving it a test run + all the randies that joined too
+and especially HaloNmincraft for joining near every playtest i held!
+
+the rest is technical stuff for like forgers and the rest of the nerds who wanna make stuff with this
+heres a vid with footage (and me terribly explaining it)
+
+
+TRAITS
+spectator traits: (the monitor traits) the traits applied to players who are downed or completely dead
+1-4 Players Traits (Balancing): the traits applied to all players when there are between 1-4 players in the game
+5-8 Players Traits (Balancing): the traits applied to all players when there are between 5-8 players in the game
+Alpha Zombie Traits: the traits applied to alpha zombies
+Zombie Player Traits: the traits applied to just regular zombies
+i removed the other balancing traits so peeps could customize the alpha & zombie traits
+
+
+SCRIPT OPTIONS (found in the "specific game options" category on MCC)
+Wave refresh time - the amount of time the game will wait to respawn zombies after the current_zombies_count has fallen below the Zombies Min script option
+- the timer will go double speed when there are 0 zombies on the map
+- if the timer is set to 0 the widget "zombies are coming" will not be visible
+
+Zombies min - if the amount of zombies on the map falls below this then the Wave refresh time starts counting down to respawn the zombies
+
+Zombies max - the maximum amount of zombies that will be present in game at one time eg. if 50, there will only ever be 50 or less zombies on the map at any given moment
+
+Zombie shields - the amount of shield health that each zombie is given (100 does not mean normal amount of shields)
+- this will be doubled for elite zombies
+- this will be halved for monitors
+
+Zombie health - the amount of health that each zombie is given (100 does not mean normal amount of health)
+- this will be doubled for elite zombies
+- this will be halved for monitors
+
+Initial points - the amount of points players will start with (times by 10)
+
+Points for killing zombies - the amount of points awarded to players for killing a zombie
+- this value will be instead subtracted from a player if they kill an allied zombie
+
+Points for killing players - the amount of points awarded to players for killing other players
+
+Store availability - the set of items that are allowed in stores (objects labelled with Z_Store) none will disable the store
+
+Misc flags 1 - three enabled/disabled options packed into a single option, you can choose which ones are enabled by selecting the option that includes the names of each option you wish to be enabled
+- Revives: allows players to get downed & beable to be revived
+- FFA teams: if enabled then forces FFA players all onto the same team
+- 1Life: when a player dies (or bleeds out) they will be unable to respawn until the current hotspot is completed
+
+Misc flags 2 - works the same as the previous MISC flags
+- infection: enables the infected team, if there are more than 8 players in the game, there will be 2 alpha zombies, otherwise there will only be one. when a player bleedsout/dies, they will become infected
+- weakZs: players will take 5 regular zombie hits to die (opposed to 3) or 4 hotspot zombie hits to die (opposed to 2)
+- slowZs: this prevents Hotspot zombies from gaining an increase in speed (kats will still move slightly faster)
+
+Hotspot sequence - this option determines how hotspots are chosen
+- No hotspots: there will be no hotspots
+- Random: a random valid hotspot (object labelled Z_ActiveZone with a spawn sequence of above 0) will be selected everytime
+- Ordered: hotspots will be picked in order of their spawn sequences (eg. spawn sequence 1, then 2 then 3 etc) if it runs out of hotspots to choose, the game will probably break
+
+Hotspot zombie additional HP - the amount of health & shields that zombies are given if they spawned inside the hotspot
+- + 40: hotspot zombies will be given an extra 40 health & shields
+- + 80: hotspot zombies will be given an extra 80 health & shields
+- + Players X 5: hotspot zombies will be given an extra 5 health & shields per player that is alive at the time of spawning
+- + Players X 10: hotspot zombies will be given an extra 10 health & shields per player that is alive at the time of spawning
+- + 40 & Players X 5: hotspot zombies will be given an extra 40 health & shields PLUS 5 health & shields per player that is alive at the time of spawning
+- + Hotspot X 15: hotspot zombies will be given an extra 15 health & shields per hotspot that has been completed plus 1
+- + Hotspot X 30: hotspot zombies will be given an extra 30 health & shields per hotspot that has been completed plus 1
+- + 40 & Hotspot X 15: hotspot zombies will be given an extra 40 health & shields PLUS 15 health & shields per hotspot that has been completed plus 1
+
+Hotspot zombies min - the minimum amount of zombies that will be spawned at the hotspot, spawning zombies at the hotspot will be prioritized over spawning them at a regular spawn
+
+Hotspot zombies max - the maximum amount of hotspot zombies that you will need to kill to clear the hotspot
+- hotspots cannot be cleared while there are normal zombies in there too, those will need to be killed too
+
+Hotspots to win - the amount of hotspots that need to be cleared to award players with a victory
+
+
+FORGE LABELS
+Z_Spawner - this object will be used to spawn zombies at
+- Z_Spawner will need to be inside the boundary of a Z_Activezone for it to ever spawn zombies
+- if a Z_Activezone that is a hotspot contains this object within its boundary, it will use this Z_Spawner to spawn hotspot zombies
+- the zombies spawned at a Z_Spawner will inherit the Z_Spawner's team (so make sure all Z_Spawners are set to blue team)
+- spawn sequences determine which group of zombies spawn at that Z_Spawner. they are as follows
+0 - all types (except monitor & elite specials)
+1 - spartans
+2 - regular spartans
+3 - climber
+4 - kat
+5 - emile
+6 - elites
+7 - climber elites
+8 - speedy elites
+9 - monitor
+
+Z - this is not for forge, it tells the game that this is a zombie and should chase&attack the player
+- likely you could apply this to objects such as crates and they would then try their best to be act like a zombie
+
+Z_Blockade - this label tells the zombies that they should attack this item, as it is obstructing their path, they will delete it when they deplete its theoretical health
+- zombies do 20 points of damage to blockades
+- blockade health is calculated as follows
+if spawn_sequence < 0 then health = spawn_squence X -100
+if spawn_sequence = 0 then health = 100
+if spawn_sequence > 0 then health = spawn_squence X 20
+
+Z_Barrier - this label tells zombies that they should kill this object if they come close enough. spawn sequences have no use
+- only works for objects that naturally have health
+- zombies will deal 20 points of damage to a Z_Barrier
+
+Z_Activezone - objects with this label will be used to determine if a zombie should be allowed to be where it currently is
+- if a Z_Activezone's boundary does not contain any players then it will become inactive
+- an inactive Z_Activezone will not protect zombies from being deleted
+- if a zombie is not contained by any active Z_Activezones then they will be deleted
+- if a Z_Activezone is currently the hotspot then they will become active even if there are no players in its boundary
+- the spawn sequences work as follows
+- if spawn_sequence < 0 then: the Z_Activezone will become permanently active & cannot be chosen as a hotspot
+- if spawn_sequence = 0 then: the Z_Activezone will not be allowed to be chosen as a hotspot
+- if spawn_sequence < 0 then: the Z_Activezone will be able to be chosen as the hotspot, the spawn sequence will also indicate the order that it will be chosen as the hotspot, if the `Hotspot sequence` script option is set to "Ordered"
+
+Z_DelZomb - will delete any zombies that enter this object boundary
+- if spawn sequence is greater than 0, it will spawn an explosion on the Z_DelZomb object when a zombie enters the boundary, at an interval of 10 seconds (i think)
+
+Z_Door - this object will be marked as a "door" for players to purchase to remove it
+- object needs a boundary for players to beable to interact
+- if a player has enough points when entering the boundary they will be prompted with a widget saying they are purchasing it, it when then purchase and delete the object when the meter reaches 0
+- purchase widget does not show up if player does not have enough points
+- spawn sequences work as follows
+if spawn_sequence < 0 then purchase_cost = spawn_squence X -250
+if spawn_sequence = 0 then purchase_cost = 750
+if spawn_sequence > 0 then purchase_cost = spawn_squence X 50
+
+Z_Store - if this object has health and is enabled with the `Store availability` script option then this object will function as a store
+- stores preview the category & item, melee is select & there are boundaries that you enter to use left, right and back navigation controls
+- there are 5 categories, unsc weapons, covenant weapons, vehicles, equipement and misc
+- after selecting a category you can purchase an item by meleeing the store, you can use the back button to go back
+- spawn sequences have no use
+- stores require boundaries for players to beable to interact with them, if a player leaves the boundaries it will stop any interaction the player is having with the store
+- store can die when too much damage is dealt
+- players can interfere with other players trying to purchase from the store by damaging it to select for them
+
+Z_ZoneObj - reworked to be like the invasion gate & weapon label?
+- spawn sequence < -1 (invasion weapon?, make sure to set a 1 sec respawn time)
+- object will be deleted until (hotspots_completed >= spawn_sequence*-1)
+- spawn_sequence -1 be deleted while phase 1 is not complete (hotspots_completed == 0) (0 >= 1: is false)
+- spawn_sequence -1 will only spawn in once phase 1 is completed (hotspots_completed == 1) (1 >= 1: is true)
+- spawn_sequence -2 will only spawn in once phase 2 is completed (hotspots_completed == 2) (2 >= 2: is true)
+- spawn sequence >= 0 (invasion gate? 1 sec respawn time unneeded)
+- object will be deleted when (hotspots_completed > spawn_sequence)
+- spawn_sequence 0 be spawned in while phase 1 is not complete (hotspots_completed == 0) (0 > 0: is false)
+- spawn_sequence 0 will be deleted once phase 1 is completed (hotspots_completed == 1) (1 > 0: is true)
+- spawn_sequence 1 will be deleted once phase 2 is completed (hotspots_completed == 2) (2 > 1: is true)
+
+Scale - the good old scale label, courtesy of the Trusty Sn00ze
+- i honestly dont know how the scale label spawn sequences work, you'd have to look into it yourself
+Z_Shadow - this will attach the object to a warthog_turret, giving it the ability to cast shadows
+- spawn sequences work the same as the scale labels now
+Z_Flashlight: will attach a white light to players inside this objects boundary, just incase someone wanted some lighting on their maps
+
+playerquitcheck - used to delete objects possessed by players who've since left the game
+- if used in forge it would just result in these labelled objects being deleted instantly
+
+Z_WallBuy - works like the shop but you specify a single object that players can purchase,
+- walk into boundary to initiate purchase, no prompts will display if player does not have enough points
+- spawn sequences decide which weapon the Z_WallBuy offers
+(unsc)
+0 - assault_rifle
+1 - magnum
+2 - dmr
+3 - grenade_launcher
+4 - shotgun
+5 - sniper_rifle
+6 - spartan_laser
+7 - rocket_launcher
+(cove)
+8 - plasma_repeater
+9 - plasma_pistol
+10 - needle_rifle
+11 - concussion_rifle
+12 - energy_sword
+13 - focus_rifle
+14 - plasma_launcher
+15 - fuel_rod_gun
+
+
+FORGING STUFF
+to make a map compatible with this mode, you will require setting up at least one Z_Spawner & one Z_ActiveZone for zombies to be able to spawn
+
+Z_Spawners are where the zombies spawn (its a good idea to put them all on blue team)
+Z_ActiveZones are what figure out where to spawn & despawn the zombies
+
+the Z_ActiveZone acts as a hard safezone of sorts for the zombies, if a zombie is not inside the boundaries of a single active Z_ActiveZone, then they will be deleted.
+the Z_ActiveZone becomes active when there is a player in its boundaries, it becomes unactive when there are no players in its boundaries
+the Z_ActiveZone also kinda weights the zombie spawns, the zombies spawn on any Z_Spawner that is currently inside the boundary of any active Z_ActiveZone
+so if there is a player in every single Z_ActiveZone on your map, then zombies will spawn in all possible spawns
+
+basically you want Z_ActiveZones that cover entire line of sight sections, for example if you had a sqaure and each line was a hallway, you'd want 1 Z_ActiveZone per hallway, making sure they all overlap at the corners, so that when a player is transitioning to the next hallway, they are still in the previous hallways boundary, so that hallway is still marked as active & the zombies wont be left in an inactive Z_ActiveZone (which would caus them to get removed)
+
+if you have any areas where say, the zombies are falling or going up a gravity lift, it may be a good idea to mark that Z_ActiveZone as permanently active (by setting their spawn sequence to below 0) so that zombies do not rely on players also being there falling or going up a gravity lift with them
+be careful to not mark areas where they can get stuck as permanently active Z_ActiveZones, because they will not beable to despawn
+
+a good forger will beable to organize their Z_ActiveZones to cover the entire playable area and overlap them enough for zombies to beable to cross from one active zone through another, while chasing players
+as well as being able to allow areas to cleanup any zombies that are not visible/near to players
+
+TLDR of this section: make sure your Z_ActiveZones cover the map & every Z_Spawner
+
+
+if you want zombies to come out of say, a barricaded window then you will need to give the barricade either the Z_barrier (if the object has health and is destructible) or the Z_Blockade (if it does not have health and cannot be destroyed)
+same with if you want them to damage/attack vehicles, you must give those vehicles the Z_barrier label, else they wont recognize it as a target
+the zombies wont actively seek out these targets, but they will attack them if they come close enough
+
+if you want to do any of the other cool stuff then refer to the FORGE LABELS section, that covers the most of the uses for all the labels
+
+
+FORGING CONSIDERATIONS
+some gameplay considerations would include providing extra weapons, compared to a slayer map, because theres a lot more zombies than there are players in a normal match of slayer
+use more open areas, so there are fewer places zombies will get stuck (THEY CANT PATHFIND) however short obstacles are fine because they can either jump over or stack ontop of another to get over
+
+mostly open areas are advised for making the hotspot zones, as it will be important that players beable to kill ALL of the zombies inside the bounds of a hotspot
+its also a good idea for hotspots to not include any zones that will cause zombies to spawn just outside of the hotspot (while players are in the hotspot), as those zombies may be inclined to walk into the zone, preventing players from clearing it, without having to kill them all before they respawn again
+
+i dunno, thats all i can think of really, you can always take a look at the map i made to get an idea of everything should flow together
+although since it was boneyard, so it doesn't work the best, but its an alright example of how to make it work
+
+also i made a video that kind reiterates this entire post, if that helps people understand the gamemode mechanics easier

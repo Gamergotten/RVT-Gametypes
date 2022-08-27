@@ -1,0 +1,26 @@
+declare global.object[0] with network priority local -- centre object
+declare global.object[1] with network priority local -- temp object[1]
+declare global.object[2] with network priority local -- goal A --
+declare global.object[3] with network priority local -- goal B --
+declare global.object[4] with network priority local -- temp object[4]
+declare global.number[0] with network priority local -- temp number[0]
+declare global.number[1] with network priority local -- temp number[1]
+declare global.number[2] with network priority local -- temp number[2]
+declare global.number[3] with network priority local -- number of chunks placed
+declare global.number[4] with network priority local
+declare global.number[5] with network priority local -- temp number[5] (chunks per frame)
+declare global.number[6] with network priority local -- inverse generation mode?
+declare global.number[7] with network priority local -- temp number[7]
+declare global.number[8] with network priority local
+declare global.number[9] with network priority local -- map layers
+
+declare global.timer[0] = 15                         -- generate pre timer 
+declare global.timer[1] = 10                         -- generation intermission
+declare global.timer[2] = 1                          -- water bump timer
+
+declare player.number[0] with network priority local
+declare player.timer[0] = 5
+
+declare object.number[0] with network priority local -- object marker x / object spawner type
+declare object.number[1] with network priority local -- object marker y
+declare object.number[2] with network priority local -- object setup?

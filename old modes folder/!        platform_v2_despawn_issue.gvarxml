@@ -1,0 +1,2593 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GameVariant engine="HaloReach" branch="HaloReach" rev="11860" engineType="Megalo">
+  <Base>
+    <Header type="GameVariant" activity="Matchmaking" mode="Matchmaking" engine="Megalo" fileLength="21289" EngineCategoryIndex="7">
+      <Unknown id0="9EE2F492AB345429" id1="9EE2F492AB345429" id2="9EE2F492AB345429" />
+      <Creator timeStamp="5EA9C852" xuid="901F3DA41862C" onlineId="true" name="?" />
+      <Modifier timeStamp="0" onlineId="true" name="?" />
+      <Title>work_pls_v4</Title>
+      <EngineIconIndex>7</EngineIconIndex>
+    </Header>
+    <Misc flags="ResetPlayersOnNewRound, ResetMapOnNewRound">
+      <Round timeLimit="4" limit="5" earlyVictoryWinCount="0" suddenDeathTimeLimit="0" />
+    </Misc>
+    <Respawning>
+      <Times respawn="5" />
+    </Respawning>
+    <Social />
+    <MapOverrides flags="ShortcutsOnMap, EquipmentOnMap, PowerupsOnMap, TurretsOnMap">
+      <ObjectSets weapons="-1" vehicles="12" />
+      <BaseTraits>
+        <Damage>
+          <Modifiers ShieldMultiplier="2" />
+        </Damage>
+        <Weapons pickupAllowed="2">
+          <Modifiers DamageMultiplier="6" />
+          <InitLoadout primaryWeapon="9" secondaryWeapon="5" grenadeCount="2" equipment="0" />
+        </Weapons>
+        <Movement>
+          <Modifiers Speed="6" />
+        </Movement>
+      </BaseTraits>
+      <Powerups>
+        <Red duration="6">
+          <Damage>
+            <Modifiers DamageResistance="12" ShieldMultiplier="6" />
+          </Damage>
+        </Red>
+        <Blue duration="15">
+          <Appearance camo="3" />
+        </Blue>
+        <Yellow duration="10">
+          <Movement>
+            <Modifiers Speed="8" />
+          </Movement>
+        </Yellow>
+      </Powerups>
+    </MapOverrides>
+    <Teams>
+      <Team designator="1" flags="Enabled">
+        <Name>
+          <String>
+            <String>Zombies</String>
+          </String>
+        </Name>
+      </Team>
+      <Team designator="0" flags="Enabled">
+        <Name>
+          <String>
+            <String>Humans</String>
+          </String>
+        </Name>
+      </Team>
+      <Team designator="-1" />
+      <Team designator="-1" />
+      <Team designator="-1" />
+      <Team designator="-1" />
+      <Team designator="-1" />
+      <Team designator="-1" />
+    </Teams>
+    <Loadouts flags="SpartanLoadouts, EliteLoadouts" used="false">
+      <Palette0 used="true">
+        <entry flags="Enabled" nameIndex="74" armorAbility="0" />
+        <entry flags="Enabled" nameIndex="76" armorAbility="2" />
+        <entry flags="Enabled" nameIndex="77" armorAbility="4" />
+        <entry flags="Enabled" nameIndex="78" armorAbility="7" />
+        <entry flags="Enabled" nameIndex="79" armorAbility="9" />
+      </Palette0>
+      <Palette1 used="true">
+        <entry flags="Enabled" nameIndex="74" armorAbility="0" />
+        <entry flags="Enabled" nameIndex="76" armorAbility="2" />
+        <entry flags="Enabled" nameIndex="77" armorAbility="4" />
+        <entry flags="Enabled" nameIndex="78" armorAbility="7" />
+        <entry flags="Enabled" nameIndex="79" armorAbility="9" />
+      </Palette1>
+    </Loadouts>
+  </Base>
+  <Megalo encoding="6B" version="11860" engineIcon="7" engineCategory="7" fireTeamsEnabled="false" symmetricGametype="true">
+    <SerializeFlags>UseStringTableNames, UseUserOptionNames</SerializeFlags>
+    <StringTable baseNameIndex="BaseName">
+      <String name="BaseName">
+        <English>Infection</English>
+        <Japanese>Infection</Japanese>
+        <German>Infektion</German>
+        <French>Infection</French>
+        <Spanish>Infección</Spanish>
+        <Mexican>Infección</Mexican>
+        <Italian>Infezione</Italian>
+        <Korean>Infection</Korean>
+        <ChineseTrad>感染</ChineseTrad>
+        <Portuguese>Infecção</Portuguese>
+      </String>
+      <String name="String1">
+        <English>Zombies</English>
+        <Japanese>ゾンビ</Japanese>
+        <German>Zombies</German>
+        <French>Zombies</French>
+        <Spanish>Zombis</Spanish>
+        <Mexican>Zombis</Mexican>
+        <Italian>Zombi</Italian>
+        <Korean>좀비</Korean>
+        <ChineseTrad>殭屍</ChineseTrad>
+        <Portuguese>Zumbis</Portuguese>
+      </String>
+      <String name="String2">
+        <English>Humans</English>
+        <Japanese>人間</Japanese>
+        <German>Menschen</German>
+        <French>Humains</French>
+        <Spanish>Humanos</Spanish>
+        <Mexican>Humanos</Mexican>
+        <Italian>Umani</Italian>
+        <Korean>인간</Korean>
+        <ChineseTrad>人類</ChineseTrad>
+        <Portuguese>Humanos</Portuguese>
+      </String>
+      <String name="infection">
+        <String>infection</String>
+      </String>
+      <String name="inf_spawn">
+        <String>inf_spawn</String>
+      </String>
+      <String name="inf_haven">
+        <String>inf_haven</String>
+      </String>
+      <String name="moving">
+        <String>moving</String>
+      </String>
+      <String name="direction">
+        <String>direction</String>
+      </String>
+      <String name="switch">
+        <String>switch</String>
+      </String>
+      <String name="String9">
+        <English>Infected Traits</English>
+        <Japanese>ゾンビ オプション</Japanese>
+        <German>Eigenschaften der Infizierten</German>
+        <French>Caractéristiques Infecté</French>
+        <Spanish>Rasgos de infectados</Spanish>
+        <Mexican>Rasgos de infectados</Mexican>
+        <Italian>Elementi infetti</Italian>
+        <Korean>감염자 특성</Korean>
+        <ChineseTrad>殭屍能力</ChineseTrad>
+        <Portuguese>Traços infectados</Portuguese>
+      </String>
+      <String name="String10">
+        <English>Determines the traits of zombies.</English>
+        <Japanese>ゾンビに変身した時に適用されるオプションの設定</Japanese>
+        <German>Bestimmt die Eigenschaften der Zombies.</German>
+        <French>Détermine les caractéristiques des zombies.</French>
+        <Spanish>Determina los rasgos de los zombis.</Spanish>
+        <Mexican>Determina los rasgos de los zombis.</Mexican>
+        <Italian>Determina gli elementi degli zombi.</Italian>
+        <Korean>좀비의 특성을 결정합니다.</Korean>
+        <ChineseTrad>可決定殭屍的能力。</ChineseTrad>
+        <Portuguese>Determina os traços dos zumbis.</Portuguese>
+      </String>
+      <String name="String11">
+        <English>Zombie Count</English>
+        <Japanese>ゾンビの数</Japanese>
+        <German>Zombie-Anzahl</German>
+        <French>Nombre de zombies</French>
+        <Spanish>Número de zombis</Spanish>
+        <Mexican>Número de zombis</Mexican>
+        <Italian>Numero Zombi</Italian>
+        <Korean>좀비 숫자</Korean>
+        <ChineseTrad>殭屍數</ChineseTrad>
+        <Portuguese>Contagem de zumbis</Portuguese>
+      </String>
+      <String name="String12">
+        <English>Determines the number of zombies at the beginning of a round.</English>
+        <Japanese>ラウンド開始時のゾンビの数</Japanese>
+        <German>Bestimmt die Anzahl der Zombies am Anfang einer Runde.</German>
+        <French>Détermine le nombre de zombies en début de manche.</French>
+        <Spanish>Determina la cantidad de zombis al principio de una ronda.</Spanish>
+        <Mexican>Determina la cantidad de zombis al principio de una ronda.</Mexican>
+        <Italian>Determina il numero di zombi all'inizio di un turno.</Italian>
+        <Korean>라운드 시작 시 좀비의 숫자를 결정합니다.</Korean>
+        <ChineseTrad>可決定回合一開始的殭屍數量。</ChineseTrad>
+        <Portuguese>Determina o número de zumbis no início de uma rodada.</Portuguese>
+      </String>
+      <String name="String13">
+        <English>1 zombie</English>
+        <Japanese>ゾンビ x 1</Japanese>
+        <German>1 Zombie</German>
+        <French>1 zombie</French>
+        <Spanish>1 zombi</Spanish>
+        <Mexican>1 zombi</Mexican>
+        <Italian>1 zombi</Italian>
+        <Korean>1 좀비</Korean>
+        <ChineseTrad>1 個殭屍</ChineseTrad>
+        <Portuguese>1 zumbi</Portuguese>
+      </String>
+      <String name="String14">
+        <String>
+        </String>
+      </String>
+      <String name="String15">
+        <English>2 zombies</English>
+        <Japanese>ゾンビ x 2</Japanese>
+        <German>2 Zombies</German>
+        <French>2 zombies</French>
+        <Spanish>2 zombis</Spanish>
+        <Mexican>2 zombis</Mexican>
+        <Italian>2 zombi</Italian>
+        <Korean>2 좀비</Korean>
+        <ChineseTrad>2 個殭屍</ChineseTrad>
+        <Portuguese>2 zumbis</Portuguese>
+      </String>
+      <String name="String16">
+        <English>3 zombies</English>
+        <Japanese>ゾンビ x 3</Japanese>
+        <German>3 Zombies</German>
+        <French>3 zombies</French>
+        <Spanish>3 zombis</Spanish>
+        <Mexican>3 zombis</Mexican>
+        <Italian>3 zombi</Italian>
+        <Korean>3 좀비</Korean>
+        <ChineseTrad>3 個殭屍</ChineseTrad>
+        <Portuguese>3 zumbis</Portuguese>
+      </String>
+      <String name="String17">
+        <English>4 zombies</English>
+        <Japanese>ゾンビ x 4</Japanese>
+        <German>4 Zombies</German>
+        <French>4 zombies</French>
+        <Spanish>4 zombis</Spanish>
+        <Mexican>4 zombis</Mexican>
+        <Italian>4 zombi</Italian>
+        <Korean>4 좀비</Korean>
+        <ChineseTrad>4 個殭屍</ChineseTrad>
+        <Portuguese>4 zumbis</Portuguese>
+      </String>
+      <String name="String18">
+        <English>5 zombies</English>
+        <Japanese>ゾンビ x 5</Japanese>
+        <German>5 Zombies</German>
+        <French>5 zombies</French>
+        <Spanish>5 zombis</Spanish>
+        <Mexican>5 zombis</Mexican>
+        <Italian>5 zombi</Italian>
+        <Korean>5 좀비</Korean>
+        <ChineseTrad>5 個殭屍</ChineseTrad>
+        <Portuguese>5 zumbis</Portuguese>
+      </String>
+      <String name="String19">
+        <English>7 zombies</English>
+        <Japanese>ゾンビ x 7</Japanese>
+        <German>7 Zombies</German>
+        <French>7 zombies</French>
+        <Spanish>7 zombis</Spanish>
+        <Mexican>7 zombis</Mexican>
+        <Italian>7 zombi</Italian>
+        <Korean>7 좀비</Korean>
+        <ChineseTrad>7 個殭屍</ChineseTrad>
+        <Portuguese>7 zumbis</Portuguese>
+      </String>
+      <String name="String20">
+        <English>8 zombies</English>
+        <Japanese>ゾンビ x 8</Japanese>
+        <German>8 Zombies</German>
+        <French>8 zombies</French>
+        <Spanish>8 zombis</Spanish>
+        <Mexican>8 zombis</Mexican>
+        <Italian>8 zombi</Italian>
+        <Korean>8 좀비</Korean>
+        <ChineseTrad>8 個殭屍</ChineseTrad>
+        <Portuguese>8 zumbis</Portuguese>
+      </String>
+      <String name="String21">
+        <English>15 zombies</English>
+        <Japanese>ゾンビ x 15</Japanese>
+        <German>15 Zombies</German>
+        <French>15 zombies</French>
+        <Spanish>15 zombis</Spanish>
+        <Mexican>15 zombis</Mexican>
+        <Italian>15 zombi</Italian>
+        <Korean>15 좀비</Korean>
+        <ChineseTrad>15 個殭屍</ChineseTrad>
+        <Portuguese>15 zumbis</Portuguese>
+      </String>
+      <String name="String22">
+        <English>Last Man Standing</English>
+        <Japanese>ラストマン スタンディング</Japanese>
+        <German>Der Letzte gewinnt</German>
+        <French>Dernier survivant</French>
+        <Spanish>Último hombre en pie</Spanish>
+        <Mexican>Último hombre en pie</Mexican>
+        <Italian>Ultimo in piedi</Italian>
+        <Korean>최후 생존</Korean>
+        <ChineseTrad>最後倖存者</ChineseTrad>
+        <Portuguese>Último homem vivo</Portuguese>
+      </String>
+      <String name="String23">
+        <English>If enabled, the last remaining survivor is declared Last Man Standing.</English>
+        <Japanese>オンにすると最後の生存者がラストマン スタンディングになる</Japanese>
+        <German>Wenn aktiviert, gewinnt der letzte Überlebende.</German>
+        <French>Si cette option est activée, le dernier encore debout est déclaré Dernier survivant.</French>
+        <Spanish>Si se activa, el último superviviente es declarado último hombre en pie.</Spanish>
+        <Mexican>Si se activa, el último superviviente es declarado último hombre en pie.</Mexican>
+        <Italian>Se attivo, l'ultimo sopravvissuto è dichiarato l'ultimo superstite.</Italian>
+        <Korean>활성화되면 마지막까지 살아남은 사람이 최후 생존으로 선포됩니다.</Korean>
+        <ChineseTrad>啟用後，最後一個活下來的將獲得「最後倖存者」。</ChineseTrad>
+        <Portuguese>Se habilitado, o último sobrevivente que resta é declarado o Último Homem Vivo.</Portuguese>
+      </String>
+      <String name="String24">
+        <English>Disabled</English>
+        <Japanese>オフ</Japanese>
+        <German>Deaktiviert</German>
+        <French>Désactivé</French>
+        <Spanish>Desactivado</Spanish>
+        <Mexican>Desactivado</Mexican>
+        <Italian>No</Italian>
+        <Korean>설정 해제됨</Korean>
+        <ChineseTrad>停用</ChineseTrad>
+        <Portuguese>Desabilitado</Portuguese>
+      </String>
+      <String name="String25">
+        <English>Enabled</English>
+        <Japanese>オン</Japanese>
+        <German>Aktiviert</German>
+        <French>Activé</French>
+        <Spanish>Activado</Spanish>
+        <Mexican>Activado</Mexican>
+        <Italian>Sì</Italian>
+        <Korean>설정됨</Korean>
+        <ChineseTrad>啟用</ChineseTrad>
+        <Portuguese>Habilitado</Portuguese>
+      </String>
+      <String name="String26">
+        <English>Last Man Standing Traits</English>
+        <Japanese>ラストマン スタンディング オプション</Japanese>
+        <German>Eigenschaften des letzten Überlebenden</German>
+        <French>Caractéristiques Dernier survivant</French>
+        <Spanish>Rasgos de último hombre en pie</Spanish>
+        <Mexican>Rasgos de último hombre en pie</Mexican>
+        <Italian>Elementi ultimo superstite</Italian>
+        <Korean>최후 생존 특성</Korean>
+        <ChineseTrad>最後倖存者能力</ChineseTrad>
+        <Portuguese>Traços de Último Homem Vivo</Portuguese>
+      </String>
+      <String name="String27">
+        <English>Determines the traits of the last man standing.</English>
+        <Japanese>ラストマン スタンディングに適用されるオプションの設定</Japanese>
+        <German>Bestimmt die Eigenschaften des letzten Überlebenden.</German>
+        <French>Détermine les caractéristiques du dernier survivant.</French>
+        <Spanish>Determina los rasgos del último hombre en pie.</Spanish>
+        <Mexican>Determina los rasgos del último hombre en pie.</Mexican>
+        <Italian>Determina gli elementi della modalità Ultimo superstite.</Italian>
+        <Korean>최후 생존의 특성을 결정합니다.</Korean>
+        <ChineseTrad>可決定最後一個倖存者的能力。</ChineseTrad>
+        <Portuguese>Determina os traços do último homem vivo.</Portuguese>
+      </String>
+      <String name="String28">
+        <English>Safe Havens</English>
+        <Japanese>セーフ ゾーン</Japanese>
+        <German>Zufluchtsorte</German>
+        <French>Refuges sécurisés</French>
+        <Spanish>Santuarios</Spanish>
+        <Mexican>Santuarios</Mexican>
+        <Italian>Rifugi</Italian>
+        <Korean>안전 지대</Korean>
+        <ChineseTrad>安全區</ChineseTrad>
+        <Portuguese>Abrigos Seguros</Portuguese>
+      </String>
+      <String name="String29">
+        <English>Determines whether Safe Havens are active</English>
+        <Japanese>セーフ ゾーンをオンにするかどうかの設定</Japanese>
+        <German>Bestimmt, ob Zufluchtsorte aktiv sind.</German>
+        <French>Détermine si les refuges sécurisés sont activés.</French>
+        <Spanish>Determina si los santuarios están activados.</Spanish>
+        <Mexican>Determina si los santuarios están activados.</Mexican>
+        <Italian>Determina se le zone sicure sono attive</Italian>
+        <Korean>안전 지대를 활성화할지 결정합니다.</Korean>
+        <ChineseTrad>可決定是否啟用安全區</ChineseTrad>
+        <Portuguese>Determina se Abrigos Seguros estão ativos</Portuguese>
+      </String>
+      <String name="String30">
+        <English>Haven Timer</English>
+        <Japanese>ゾーン タイマー</Japanese>
+        <German>Zufluchtstimer</German>
+        <French>Délai refuge</French>
+        <Spanish>Tiempo de santuario</Spanish>
+        <Mexican>Tiempo de santuario</Mexican>
+        <Italian>Tempo rifugio</Italian>
+        <Korean>안전 지대 지속 시간</Korean>
+        <ChineseTrad>安全區計時</ChineseTrad>
+        <Portuguese>Temporizador do Abrigo</Portuguese>
+      </String>
+      <String name="String31">
+        <English>Determines how long a Haven lasts after a Survivor steps into it.</English>
+        <Japanese>セーフ ゾーンの持続時間の設定</Japanese>
+        <German>Bestimmt, wie lange eine Zuflucht bestehen bleibt, nachdem ein Überlebender sie betreten hat.</German>
+        <French>Détermine la durée d'un refuge après qu'un survivant y soit entré.</French>
+        <Spanish>Determina cuánto dura un santuario desde que un superviviente lo pisa.</Spanish>
+        <Mexican>Determina cuánto dura un santuario desde que un superviviente lo pisa.</Mexican>
+        <Italian>Determina la durata di un rifugio dopo che un sopravvissuto vi accede camminandoci sopra.</Italian>
+        <Korean>생존자가 입장한 뒤 안전 지대가 얼마 동안 활성화되는지 결정합니다.</Korean>
+        <ChineseTrad>可決定安全區在倖存者進入後的持續時間。</ChineseTrad>
+        <Portuguese>Determina quanto tempo um Abrigo dura depois que um sobrevivente entra nele.</Portuguese>
+      </String>
+      <String name="String32">
+        <English>5 seconds</English>
+        <Japanese>5 秒</Japanese>
+        <German>5 Sekunden</German>
+        <French>5 secondes</French>
+        <Spanish>5 segundos</Spanish>
+        <Mexican>5 segundos</Mexican>
+        <Italian>5 secondi</Italian>
+        <Korean>5초</Korean>
+        <ChineseTrad>5 秒</ChineseTrad>
+        <Portuguese>5 segundos</Portuguese>
+      </String>
+      <String name="String33">
+        <English>10 seconds</English>
+        <Japanese>10 秒</Japanese>
+        <German>10 Sekunden</German>
+        <French>10 secondes</French>
+        <Spanish>10 segundos</Spanish>
+        <Mexican>10 segundos</Mexican>
+        <Italian>10 secondi</Italian>
+        <Korean>10초</Korean>
+        <ChineseTrad>10 秒</ChineseTrad>
+        <Portuguese>10 segundos</Portuguese>
+      </String>
+      <String name="String34">
+        <English>15 seconds</English>
+        <Japanese>15 秒</Japanese>
+        <German>15 Sekunden</German>
+        <French>15 secondes</French>
+        <Spanish>15 segundos</Spanish>
+        <Mexican>15 segundos</Mexican>
+        <Italian>15 secondi</Italian>
+        <Korean>15초</Korean>
+        <ChineseTrad>15 秒</ChineseTrad>
+        <Portuguese>15 segundos</Portuguese>
+      </String>
+      <String name="String35">
+        <English>20 seconds</English>
+        <Japanese>20 秒</Japanese>
+        <German>20 Sekunden</German>
+        <French>20 secondes</French>
+        <Spanish>20 segundos</Spanish>
+        <Mexican>20 segundos</Mexican>
+        <Italian>20 secondi</Italian>
+        <Korean>20초</Korean>
+        <ChineseTrad>20 秒</ChineseTrad>
+        <Portuguese>20 segundos</Portuguese>
+      </String>
+      <String name="String36">
+        <English>30 seconds</English>
+        <Japanese>30 秒</Japanese>
+        <German>30 Sekunden</German>
+        <French>30 secondes</French>
+        <Spanish>30 segundos</Spanish>
+        <Mexican>30 segundos</Mexican>
+        <Italian>30 secondi</Italian>
+        <Korean>30초</Korean>
+        <ChineseTrad>30 秒</ChineseTrad>
+        <Portuguese>30 segundos</Portuguese>
+      </String>
+      <String name="String37">
+        <English>45 seconds</English>
+        <Japanese>45 秒</Japanese>
+        <German>45 Sekunden</German>
+        <French>45 secondes</French>
+        <Spanish>45 segundos</Spanish>
+        <Mexican>45 segundos</Mexican>
+        <Italian>45 secondi</Italian>
+        <Korean>45초</Korean>
+        <ChineseTrad>45 秒</ChineseTrad>
+        <Portuguese>45 segundos</Portuguese>
+      </String>
+      <String name="String38">
+        <English>1 minute</English>
+        <Japanese>1 分</Japanese>
+        <German>1 Minute</German>
+        <French>1 minute</French>
+        <Spanish>1 minuto</Spanish>
+        <Mexican>1 minuto</Mexican>
+        <Italian>1 minuto</Italian>
+        <Korean>1분</Korean>
+        <ChineseTrad>1 分鐘</ChineseTrad>
+        <Portuguese>1 minuto</Portuguese>
+      </String>
+      <String name="String39">
+        <English>Haven Traits</English>
+        <Japanese>ゾーン オプション</Japanese>
+        <German>Zufluchtseigenschaften</German>
+        <French>Caractéristiques Refuge</French>
+        <Spanish>Rasgos de santuario</Spanish>
+        <Mexican>Rasgos de santuario</Mexican>
+        <Italian>Elementi rifugio</Italian>
+        <Korean>안전 지대 특성</Korean>
+        <ChineseTrad>安全區能力</ChineseTrad>
+        <Portuguese>Traços do Abrigo</Portuguese>
+      </String>
+      <String name="String40">
+        <English>Determines player traits assigned to survivors when standing inside the Haven</English>
+        <Japanese>セーフ ゾーン内での生存者に適用されるオプションの設定</Japanese>
+        <German>Bestimmt die Spielereigenschaften, die Überlebende in der Zuflucht erhalten.</German>
+        <French>Détermine les caractéristiques de joueur appliqués aux survivants entrés dans le refuge</French>
+        <Spanish>Determina los rasgos de los supervivientes que están en el santuario.</Spanish>
+        <Mexican>Determina los rasgos de los supervivientes que están en el santuario.</Mexican>
+        <Italian>Determina gli elementi giocatore assegnati ai sopravvissuti quando si trovano nel rifugio</Italian>
+        <Korean>안전 지대에 입장한 생존자에게 적용되는 특성입니다.</Korean>
+        <ChineseTrad>可決定倖存者在進入安全區後所具有的能力</ChineseTrad>
+        <Portuguese>Determina traços do jogador designados aos sobreviventes quando estão dentro do Abrigo</Portuguese>
+      </String>
+      <String name="String41">
+        <English>Zombie Victory</English>
+        <Japanese>ゾンビ ビクトリー</Japanese>
+        <German>Zombie-Sieg</German>
+        <French>Victoire des zombies</French>
+        <Spanish>Victoria zombi</Spanish>
+        <Mexican>Victoria zombi</Mexican>
+        <Italian>Vittoria Zombi</Italian>
+        <Korean>좀비 승리</Korean>
+        <ChineseTrad>殭屍獲勝</ChineseTrad>
+        <Portuguese>Vitória zumbi</Portuguese>
+      </String>
+      <String name="String42">
+        <English>Bonus points for the zombies if they devour all survivors.</English>
+        <Japanese>人間を全滅させた場合、ゾンビに与えられるボーナスポイント</Japanese>
+        <German>Bonuspunkte für die Zombies, wenn sie alle Überlebenden verschlingen.</German>
+        <French>Points bonus si les zombies dévorent tous les survivants.</French>
+        <Spanish>Puntos extra para los zombis si devoran a todos los supervivientes.</Spanish>
+        <Mexican>Puntos extra para los zombis si devoran a todos los supervivientes.</Mexican>
+        <Italian>Punti bonus assegnati agli zombi se divorano tutti i sopravvissuti.</Italian>
+        <Korean>좀비가 모든 생존자를 먹어치웠을 때 얻는 보너스 점수입니다.</Korean>
+        <ChineseTrad>殭屍吞食所有倖存者後所獲得的獎勵分數。</ChineseTrad>
+        <Portuguese>Pontos bônus para os zumbis se eles devorarem todos os sobreviventes.</Portuguese>
+      </String>
+      <String name="String43">
+        <English>no points</English>
+        <Japanese>0 ポイント</Japanese>
+        <German>keine Punkte</German>
+        <French>aucun point</French>
+        <Spanish>ningún punto</Spanish>
+        <Mexican>ningún punto</Mexican>
+        <Italian>nessun punto</Italian>
+        <Korean>0점</Korean>
+        <ChineseTrad>無分數</ChineseTrad>
+        <Portuguese>nenhum ponto</Portuguese>
+      </String>
+      <String name="String44">
+        <English>1 point</English>
+        <Japanese>1 ポイント</Japanese>
+        <German>1 Punkt</German>
+        <French>1 point</French>
+        <Spanish>1 punto</Spanish>
+        <Mexican>1 punto</Mexican>
+        <Italian>1 punto</Italian>
+        <Korean>1점</Korean>
+        <ChineseTrad>1 分</ChineseTrad>
+        <Portuguese>1 ponto</Portuguese>
+      </String>
+      <String name="String45">
+        <English>2 points</English>
+        <Japanese>2 ポイント</Japanese>
+        <German>2 Punkte</German>
+        <French>2 points</French>
+        <Spanish>2 puntos</Spanish>
+        <Mexican>2 puntos</Mexican>
+        <Italian>2 punti</Italian>
+        <Korean>2점</Korean>
+        <ChineseTrad>2 分</ChineseTrad>
+        <Portuguese>2 pontos</Portuguese>
+      </String>
+      <String name="String46">
+        <English>5 points</English>
+        <Japanese>5 ポイント</Japanese>
+        <German>5 Punkte</German>
+        <French>5 points</French>
+        <Spanish>5 puntos</Spanish>
+        <Mexican>5 puntos</Mexican>
+        <Italian>5 punti</Italian>
+        <Korean>5점</Korean>
+        <ChineseTrad>5 分</ChineseTrad>
+        <Portuguese>5 pontos</Portuguese>
+      </String>
+      <String name="String47">
+        <English>10 points</English>
+        <Japanese>10 ポイント</Japanese>
+        <German>10 Punkte</German>
+        <French>10 points</French>
+        <Spanish>10 puntos</Spanish>
+        <Mexican>10 puntos</Mexican>
+        <Italian>10 punti</Italian>
+        <Korean>10점</Korean>
+        <ChineseTrad>10 分</ChineseTrad>
+        <Portuguese>10 pontos</Portuguese>
+      </String>
+      <String name="String48">
+        <English>Survivor Victory</English>
+        <Japanese>サバイバー ビクトリー</Japanese>
+        <German>Überlebendensieg</German>
+        <French>Victoire des survivants</French>
+        <Spanish>Victoria superviviente</Spanish>
+        <Mexican>Victoria superviviente</Mexican>
+        <Italian>Vittoria sopravvissuto</Italian>
+        <Korean>생존자 승리</Korean>
+        <ChineseTrad>倖存者獲勝</ChineseTrad>
+        <Portuguese>Vitória do sobrevivente</Portuguese>
+      </String>
+      <String name="String49">
+        <English>Bonus points for surviving an entire round.</English>
+        <Japanese>ラウンド終了時の生存者に与えられるボーナスポイント</Japanese>
+        <German>Bonuspunkte für das Überleben einer ganzen Runde.</German>
+        <French>Points bonus pour avoir survécu à une manche entière.</French>
+        <Spanish>Puntos extra por sobrevivir una ronda entera.</Spanish>
+        <Mexican>Puntos extra por sobrevivir una ronda entera.</Mexican>
+        <Italian>Punti bonus per sopravvivere un intero turno.</Italian>
+        <Korean>모든 라운드에서 살아남았을 때 받는 보너스 점수입니다.</Korean>
+        <ChineseTrad>存活到整個回合結束後所獲得的獎勵分數。</ChineseTrad>
+        <Portuguese>Pontos bônus por sobreviver uma rodada inteira.</Portuguese>
+      </String>
+      <String name="String50">
+        <English>Haven Points</English>
+        <Japanese>ゾーン ポイント</Japanese>
+        <German>Zufluchtspunkte</German>
+        <French>Points refuge</French>
+        <Spanish>Puntos por santuario</Spanish>
+        <Mexican>Puntos por santuario</Mexican>
+        <Italian>Aree rifugio</Italian>
+        <Korean>안전 점수</Korean>
+        <ChineseTrad>安全區分數</ChineseTrad>
+        <Portuguese>Pontos do Abrigo</Portuguese>
+      </String>
+      <String name="String51">
+        <English>Bonus points for kills made while inside a Haven.</English>
+        <Japanese>セーフ ゾーン内で達成したキルに対するボーナスポイント</Japanese>
+        <German>Bonuspunkte für Volltreffer in einer Zuflucht.</German>
+        <French>Points bonus pour les frags à l'intérieur d'un refuge.</French>
+        <Spanish>Puntos extra por abatidos conseguidos dentro de un santuario.</Spanish>
+        <Mexican>Puntos extra por abatidos conseguidos dentro de un santuario.</Mexican>
+        <Italian>Punti bonus per uccisioni eseguite all'interno di un rifugio.</Italian>
+        <Korean>안전 지대에서 죽일 경우 얻는 보너스 점수입니다.</Korean>
+        <ChineseTrad>在安全區內殺敵時所獲得的獎勵分數。</ChineseTrad>
+        <Portuguese>Pontos bônus por abates efetuados enquanto estiver dentro  do Abrigo.</Portuguese>
+      </String>
+      <String name="String52">
+        <English>-2 points</English>
+        <Japanese>-2 ポイント</Japanese>
+        <German>-2 Punkte</German>
+        <French>-2 points</French>
+        <Spanish>-2 puntos</Spanish>
+        <Mexican>-2 puntos</Mexican>
+        <Italian>-2 punti</Italian>
+        <Korean>-2점</Korean>
+        <ChineseTrad>-2 分</ChineseTrad>
+        <Portuguese>-2 pontos</Portuguese>
+      </String>
+      <String name="String53">
+        <English>-1 point</English>
+        <Japanese>-1 ポイント</Japanese>
+        <German>-1 Punkt</German>
+        <French>-1 point</French>
+        <Spanish>-1 punto</Spanish>
+        <Mexican>-1 punto</Mexican>
+        <Italian>-1 punto</Italian>
+        <Korean>-1점</Korean>
+        <ChineseTrad>-1 分</ChineseTrad>
+        <Portuguese>-1 ponto</Portuguese>
+      </String>
+      <String name="String54">
+        <English>3 points</English>
+        <Japanese>3 ポイント</Japanese>
+        <German>3 Punkte</German>
+        <French>3 points</French>
+        <Spanish>3 puntos</Spanish>
+        <Mexican>3 puntos</Mexican>
+        <Italian>3 punti</Italian>
+        <Korean>3점</Korean>
+        <ChineseTrad>3 分</ChineseTrad>
+        <Portuguese>3 pontos</Portuguese>
+      </String>
+      <String name="String55">
+        <English>4 points</English>
+        <Japanese>4 ポイント</Japanese>
+        <German>4 Punkte</German>
+        <French>4 points</French>
+        <Spanish>4 puntos</Spanish>
+        <Mexican>4 puntos</Mexican>
+        <Italian>4 punti</Italian>
+        <Korean>4점</Korean>
+        <ChineseTrad>4 分</ChineseTrad>
+        <Portuguese>4 pontos</Portuguese>
+      </String>
+      <String name="String56">
+        <English>Kill Points</English>
+        <Japanese>キル ポイント</Japanese>
+        <German>Volltreffer-Punkte</German>
+        <French>Points de frag</French>
+        <Spanish>Puntos por abatido</Spanish>
+        <Mexican>Puntos por abatido</Mexican>
+        <Italian>Punti uccisione</Italian>
+        <Korean>사살</Korean>
+        <ChineseTrad>殺敵分數</ChineseTrad>
+        <Portuguese>Pontos por abate</Portuguese>
+      </String>
+      <String name="String57">
+        <English>Points for killing an enemy.</English>
+        <Japanese>敵を倒すと獲得できるポイント</Japanese>
+        <German>Punkte für das ausschalten eines Gegners.</German>
+        <French>Points pour tuer un ennemi.</French>
+        <Spanish>Puntos por matar a un enemigo.</Spanish>
+        <Mexican>Puntos por matar a un enemigo.</Mexican>
+        <Italian>Punti per l'uccisione di un nemico.</Italian>
+        <Korean>적 한 명을 죽일 때 획득하는 점수입니다.</Korean>
+        <ChineseTrad>擊殺敵人所獲得的分數。</ChineseTrad>
+        <Portuguese>Pontos por matar o inimigo.</Portuguese>
+      </String>
+      <String name="String58">
+        <English>-5 points</English>
+        <Japanese>-5 ポイント</Japanese>
+        <German>-5 Punkte</German>
+        <French>-5 points</French>
+        <Spanish>-5 puntos</Spanish>
+        <Mexican>-5 puntos</Mexican>
+        <Italian>-5 punti</Italian>
+        <Korean>-5점</Korean>
+        <ChineseTrad>-5 分</ChineseTrad>
+        <Portuguese>-5 pontos</Portuguese>
+      </String>
+      <String name="String59">
+        <English>Suicide Points</English>
+        <Japanese>自爆ポイント</Japanese>
+        <German>Selbstmord-Punkte</German>
+        <French>Points de suicide</French>
+        <Spanish>Puntos por suicidio</Spanish>
+        <Mexican>Puntos por suicidio</Mexican>
+        <Italian>Punti suicidio</Italian>
+        <Korean>자살</Korean>
+        <ChineseTrad>自殺分數</ChineseTrad>
+        <Portuguese>Pontos por suicídio</Portuguese>
+      </String>
+      <String name="String60">
+        <English>Points for killing yourself.</English>
+        <Japanese>自爆すると獲得できるポイント</Japanese>
+        <German>Punkte für einen Selbstmord.</German>
+        <French>Points pour suicide.</French>
+        <Spanish>Puntos por suicidarse.</Spanish>
+        <Mexican>Puntos por suicidarse.</Mexican>
+        <Italian>Punti per aver commesso suicidio.</Italian>
+        <Korean>자살 시 획득하는 점수입니다.</Korean>
+        <ChineseTrad>自殺所獲得的分數。</ChineseTrad>
+        <Portuguese>Pontos por suicidar-se.</Portuguese>
+      </String>
+      <String name="String61">
+        <English>Betrayal Points</English>
+        <Japanese>裏切りポイント</Japanese>
+        <German>Verrat-Punkte</German>
+        <French>Points de trahison</French>
+        <Spanish>Puntos por traición</Spanish>
+        <Mexican>Puntos por traición</Mexican>
+        <Italian>Punti tradimento</Italian>
+        <Korean>배신</Korean>
+        <ChineseTrad>背叛分數</ChineseTrad>
+        <Portuguese>Pontos por traição</Portuguese>
+      </String>
+      <String name="String62">
+        <English>Points for killing an ally.</English>
+        <Japanese>味方を倒すと獲得できるポイント</Japanese>
+        <German>Punkte für das Ausschalten eines Verbündeten.</German>
+        <French>Points pour tuer un allié.</French>
+        <Spanish>Puntos por matar a un aliado.</Spanish>
+        <Mexican>Puntos por matar a un aliado.</Mexican>
+        <Italian>Punti per l'uccisione di un alleato.</Italian>
+        <Korean>아군 한 명을 죽일 때 획득하는 점수입니다.</Korean>
+        <ChineseTrad>殺死盟友所獲得的分數。</ChineseTrad>
+        <Portuguese>Pontos por matar um aliado.</Portuguese>
+      </String>
+      <String name="String63">
+        <English>Zombie Kill Points</English>
+        <Japanese>ゾンビ キル ポイント</Japanese>
+        <German>Zombie-Volltreffer-Punkte</German>
+        <French>Points de frag de zombie</French>
+        <Spanish>Puntos por matar zombis</Spanish>
+        <Mexican>Puntos por matar zombis</Mexican>
+        <Italian>Punti uccisione zombi</Italian>
+        <Korean>좀비 사살 점수</Korean>
+        <ChineseTrad>殭屍殺敵分數</ChineseTrad>
+        <Portuguese>Pontos por abate zumbi</Portuguese>
+      </String>
+      <String name="String64">
+        <English>Points awarded for scoring kills as the zombie.</English>
+        <Japanese>ゾンビで獲得したキル ポイント</Japanese>
+        <German>Punkte für Abschüsse als Zombie.</German>
+        <French>Points attribués pour les frags en tant que zombie.</French>
+        <Spanish>Puntos concedidos por abatidos como zombi.</Spanish>
+        <Mexican>Puntos concedidos por abatidos como zombi.</Mexican>
+        <Italian>Punti ottenuti in seguito alle uccisioni eseguite come zombi.</Italian>
+        <Korean>좀비로서 적을 사살했을 때 얻는 점수입니다.</Korean>
+        <ChineseTrad>扮演殭屍並殺死敵人時所獲得的分數。</ChineseTrad>
+        <Portuguese>Pontos concedidos por marcar mortes como o zumbi.</Portuguese>
+      </String>
+      <String name="String65">
+        <English>Last Man Standing Points</English>
+        <Japanese>ラストマン ポイント</Japanese>
+        <German>Der-Letzte-gewinnt-Punkte</German>
+        <French>Points Dernier survivant</French>
+        <Spanish>Puntos de último con vida</Spanish>
+        <Mexican>Puntos de último con vida</Mexican>
+        <Italian>Punti Ultimo superstite</Italian>
+        <Korean>최후 생존 점수</Korean>
+        <ChineseTrad>最後倖存者分數</ChineseTrad>
+        <Portuguese>Pontos de Último homem vivo</Portuguese>
+      </String>
+      <String name="String66">
+        <English>Bonus points for kills made as the Last Man Standing.</English>
+        <Japanese>ラストマン スタンディングでのキル数に対するボーナスポイント</Japanese>
+        <German>Bonuspunkte für Abschüsse, die man als letzter Überlebender gemacht hat.</German>
+        <French>Points bonus pour les frags en tant que dernier survivant.</French>
+        <Spanish>Puntos extra por abatidos como último hombre en pie.</Spanish>
+        <Mexican>Puntos extra por abatidos como último hombre en pie.</Mexican>
+        <Italian>Punti bonus per le uccisioni compiute come Ultimo superstite.</Italian>
+        <Korean>최후 생존일 때 얻는 보너스 점수입니다.</Korean>
+        <ChineseTrad>以最後一個倖存者殺死敵人時所獲得的獎勵分數。</ChineseTrad>
+        <Portuguese>Pontos bônus por abates efetuados como o Último homem vivo.</Portuguese>
+      </String>
+      <String name="String67">
+        <English>Suicides Become Zombies</English>
+        <Japanese>自爆ゾンビ</Japanese>
+        <German>Selbstmörder werden zu Zombies</German>
+        <French>Les suicidés deviennent des zombies</French>
+        <Spanish>Suicidas se vuelven zombis</Spanish>
+        <Mexican>Suicidas se vuelven zombis</Mexican>
+        <Italian>I suicidi divengono zombi</Italian>
+        <Korean>자살하면 좀비</Korean>
+        <ChineseTrad>自殺成為殭屍</ChineseTrad>
+        <Portuguese>Suicidas Tornam-se Zumbis</Portuguese>
+      </String>
+      <String name="String68">
+        <English>If enabled, players who kill themselves join the ranks of the undead.</English>
+        <Japanese>オンにすると、自爆したプレイヤーはゾンビになる</Japanese>
+        <German>Wenn aktiviert, werden Spieler, die sich selbst umbringen, ebenfalls zu Untoten.</German>
+        <French>Si l'option est activée, les joueurs qui se suicident deviennent des morts-vivants.</French>
+        <Spanish>Si se activa, los jugadores que se suiciden se convertirán en no muertos.</Spanish>
+        <Mexican>Si se activa, los jugadores que se suiciden se convertirán en no muertos.</Mexican>
+        <Italian>Se attivo, i giocatori che si uccidono si uniranno alle schiere dei non-morti.</Italian>
+        <Korean>활성화 시 자살자는 좀비에 합류합니다.</Korean>
+        <ChineseTrad>啟用後，自殺的玩家會加入不死大軍的行列。</ChineseTrad>
+        <Portuguese>Se habilitada, os jogadores que se matam juntam-se às fileiras dos mortos-vivos.</Portuguese>
+      </String>
+      <String name="String69">
+        <English>Survival Time</English>
+        <Japanese>サバイバル</Japanese>
+        <German>Überlebenszeit</German>
+        <French>Temps survie</French>
+        <Spanish>Tiempo de supervivencia</Spanish>
+        <Mexican>Tiempo de supervivencia</Mexican>
+        <Italian>Tempo di sopravvivenza</Italian>
+        <Korean>생존 시간</Korean>
+        <ChineseTrad>存活時間</ChineseTrad>
+        <Portuguese>Tempo de sobrevivência</Portuguese>
+      </String>
+      <String name="String70">
+        <English>Infections</English>
+        <Japanese>感染回数</Japanese>
+        <German>Infektionen</German>
+        <French>Contaminations</French>
+        <Spanish>Infecciones</Spanish>
+        <Mexican>Infecciones</Mexican>
+        <Italian>Infezioni</Italian>
+        <Korean>감염</Korean>
+        <ChineseTrad>感染數</ChineseTrad>
+        <Portuguese>Infecções</Portuguese>
+      </String>
+      <String name="String71">
+        <English>Safe Haven - %s</English>
+        <Japanese>セーフ ゾーン - %s</Japanese>
+        <German>Zufluchtsort - %s</German>
+        <French>Refuge sécurisé - %s</French>
+        <Spanish>Santuario: %s</Spanish>
+        <Mexican>Santuario: %s</Mexican>
+        <Italian>Rifugio - %s</Italian>
+        <Korean>안전 지대 - %s</Korean>
+        <ChineseTrad>安全區 - %s</ChineseTrad>
+        <Portuguese>Abrigo seguro - %s</Portuguese>
+      </String>
+      <String name="String72">
+        <English>Defend yourself from the zombie horde!</English>
+        <Japanese>ゾンビの群れから身を守れ！</Japanese>
+        <German>Verteidigen Sie sich vor der Zombie-Horde!</German>
+        <French>Défendez-vous contre la horde de zombies !</French>
+        <Spanish>¡Defiéndete de la horda de zombis!</Spanish>
+        <Mexican>¡Defiéndete de la horda de zombis!</Mexican>
+        <Italian>Difenditi dall'orda degli zombi!</Italian>
+        <Korean>좀비들로부터 자신을 지키십시오!</Korean>
+        <ChineseTrad>保護好自己，別讓自己也成為殭屍！</ChineseTrad>
+        <Portuguese>Defenda-se da horda de zumbis!</Portuguese>
+      </String>
+      <String name="String73">
+        <English>Braaaaaains...</English>
+        <Japanese>恐怖におびえる人間に襲いかかれ</Japanese>
+        <German>Hiiiiiirn ...</German>
+        <French>Cerveauuuux...</French>
+        <Spanish>Cereeeeebros...</Spanish>
+        <Mexican>Cereeeeebros...</Mexican>
+        <Italian>Cervelliiii...</Italian>
+        <Korean>맛있는 뇌...</Korean>
+        <ChineseTrad>我要腦袋...</ChineseTrad>
+        <Portuguese>Céeeerebro...</Portuguese>
+      </String>
+    </StringTable>
+    <DescString>
+      <String>
+        <English>The timeless struggle of human versus zombie. If you die by a zombie's hand, you join their ranks.</English>
+        <Japanese>人間対ゾンビの熾烈な戦い。ゾンビに倒されるとゾンビに変身する</Japanese>
+        <German>Der immerwährende Kampf Mensch gegen Zombie.</German>
+        <French>La lutte éternelle entre l'homme et le zombie. Si vous vous faites tuer par un zombie, vous rejoignez leurs rangs.</French>
+        <Spanish>La lucha tan vieja como el tiempo del hombre contra el zombi. Si te mata un zombi, te unes a sus filas.</Spanish>
+        <Mexican>La lucha tan vieja como el tiempo del hombre contra el zombi. Si te mata un zombi, te unes a sus filas.</Mexican>
+        <Italian>L'infinita lotta dell'uomo contro lo zombi. Se muori per mano di uno zombi, diventi uno di loro.</Italian>
+        <Korean>인간과 좀비의 무한 대결이 펼쳐집니다. 좀비에게 죽은 플레이어는 좀비가 됩니다.</Korean>
+        <ChineseTrad>你與殭屍之間無盡的對抗，如果被殭屍殺了，就變成殭屍吧！</ChineseTrad>
+        <Portuguese>A interminável luta do humano contra o zumbi. Se você morrer pelas mãos de um zumbi, formará parte de suas fileiras.</Portuguese>
+      </String>
+    </DescString>
+    <CategoryString>
+      <String>
+        <English>Infection</English>
+        <Japanese>Infection</Japanese>
+        <German>Infektion</German>
+        <French>Infection</French>
+        <Spanish>Infección</Spanish>
+        <Mexican>Infección</Mexican>
+        <Italian>Infezione</Italian>
+        <Korean>Infection</Korean>
+        <ChineseTrad>感染</ChineseTrad>
+        <Portuguese>Infecção</Portuguese>
+      </String>
+    </CategoryString>
+    <PlayerTraits>
+      <entry nameIndex="String9" descIndex="String10" name="Infected Traits">
+        <Traits>
+          <Damage>
+            <Modifiers ShieldMultiplier="1" ShieldRechargeRate="4" />
+          </Damage>
+          <Weapons pickupAllowed="2" infAmmo="2">
+            <Modifiers DamageMultiplier="6" MeleeDamageMultiplier="10" />
+            <InitLoadout primaryWeapon="4" secondaryWeapon="-1" grenadeCount="2" equipment="8" />
+          </Weapons>
+          <Movement>
+            <Modifiers Speed="8" />
+            <Usage vehicles="1" />
+          </Movement>
+          <Appearance forcedChangeColor="12" />
+          <Sensors>
+            <MotionTracker usage="4" />
+          </Sensors>
+        </Traits>
+      </entry>
+      <entry nameIndex="String26" descIndex="String27" name="Last Man Standing Traits">
+        <Traits>
+          <Damage>
+            <Modifiers ShieldMultiplier="3" />
+          </Damage>
+          <Movement>
+            <Modifiers Speed="7" />
+          </Movement>
+          <Appearance waypoint="3" />
+        </Traits>
+      </entry>
+      <entry nameIndex="String39" descIndex="String40" name="Haven Traits">
+        <Traits>
+          <Damage assassinationImmunity="2">
+            <Modifiers DamageResistance="12" />
+          </Damage>
+          <Weapons>
+            <Modifiers DamageMultiplier="6" />
+          </Weapons>
+        </Traits>
+      </entry>
+    </PlayerTraits>
+    <UserDefinedOptions>
+      <entry nameIndex="String11" descIndex="String12" name="Zombie Count" valueIndex="0">
+        <Values defaultIndex="0">
+          <entry nameIndex="String13" descIndex="String14" value="1" />
+          <entry nameIndex="String15" descIndex="String14" value="2" />
+          <entry nameIndex="String16" descIndex="String14" value="3" />
+          <entry nameIndex="String17" descIndex="String14" value="4" />
+          <entry nameIndex="String18" descIndex="String14" value="5" />
+          <entry nameIndex="String19" descIndex="String14" value="7" />
+          <entry nameIndex="String20" descIndex="String14" value="8" />
+          <entry nameIndex="String21" descIndex="String14" value="15" />
+        </Values>
+      </entry>
+      <entry nameIndex="String22" descIndex="String23" name="Last Man Standing" valueIndex="1">
+        <Values defaultIndex="1">
+          <entry nameIndex="String24" descIndex="String14" value="0" />
+          <entry nameIndex="String25" descIndex="String14" value="1" />
+        </Values>
+      </entry>
+      <entry nameIndex="String28" descIndex="String29" name="Safe Havens" valueIndex="0">
+        <Values defaultIndex="0">
+          <entry nameIndex="String24" descIndex="String14" value="0" />
+          <entry nameIndex="String25" descIndex="String14" value="1" />
+        </Values>
+      </entry>
+      <entry nameIndex="String30" descIndex="String31" name="Haven Timer" valueIndex="1">
+        <Values defaultIndex="1">
+          <entry nameIndex="String32" descIndex="String14" value="5" />
+          <entry nameIndex="String33" descIndex="String14" value="10" />
+          <entry nameIndex="String34" descIndex="String14" value="15" />
+          <entry nameIndex="String35" descIndex="String14" value="20" />
+          <entry nameIndex="String36" descIndex="String14" value="30" />
+          <entry nameIndex="String37" descIndex="String14" value="45" />
+          <entry nameIndex="String38" descIndex="String14" value="60" />
+        </Values>
+      </entry>
+      <entry nameIndex="String41" descIndex="String42" name="Zombie Victory" valueIndex="0">
+        <Values defaultIndex="0">
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String48" descIndex="String49" name="Survivor Victory" valueIndex="1">
+        <Values defaultIndex="1">
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String50" descIndex="String51" name="Haven Points" valueIndex="2">
+        <Values defaultIndex="2">
+          <entry nameIndex="String52" descIndex="String14" value="-2" />
+          <entry nameIndex="String53" descIndex="String14" value="-1" />
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String54" descIndex="String14" value="3" />
+          <entry nameIndex="String55" descIndex="String14" value="4" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+        </Values>
+      </entry>
+      <entry nameIndex="String56" descIndex="String57" name="Kill Points" valueIndex="4">
+        <Values defaultIndex="4">
+          <entry nameIndex="String58" descIndex="String14" value="-5" />
+          <entry nameIndex="String52" descIndex="String14" value="-2" />
+          <entry nameIndex="String53" descIndex="String14" value="-1" />
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String59" descIndex="String60" name="Suicide Points" valueIndex="2">
+        <Values defaultIndex="2">
+          <entry nameIndex="String58" descIndex="String14" value="-5" />
+          <entry nameIndex="String52" descIndex="String14" value="-2" />
+          <entry nameIndex="String53" descIndex="String14" value="-1" />
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String61" descIndex="String62" name="Betrayal Points" valueIndex="2">
+        <Values defaultIndex="2">
+          <entry nameIndex="String58" descIndex="String14" value="-5" />
+          <entry nameIndex="String52" descIndex="String14" value="-2" />
+          <entry nameIndex="String53" descIndex="String14" value="-1" />
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String63" descIndex="String64" name="Zombie Kill Points" valueIndex="4">
+        <Values defaultIndex="4">
+          <entry nameIndex="String58" descIndex="String14" value="-5" />
+          <entry nameIndex="String52" descIndex="String14" value="-2" />
+          <entry nameIndex="String53" descIndex="String14" value="-1" />
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String65" descIndex="String66" name="Last Man Standing Points" valueIndex="4">
+        <Values defaultIndex="4">
+          <entry nameIndex="String58" descIndex="String14" value="-5" />
+          <entry nameIndex="String52" descIndex="String14" value="-2" />
+          <entry nameIndex="String53" descIndex="String14" value="-1" />
+          <entry nameIndex="String43" descIndex="String14" value="0" />
+          <entry nameIndex="String44" descIndex="String14" value="1" />
+          <entry nameIndex="String45" descIndex="String14" value="2" />
+          <entry nameIndex="String46" descIndex="String14" value="5" />
+          <entry nameIndex="String47" descIndex="String14" value="10" />
+        </Values>
+      </entry>
+      <entry nameIndex="String67" descIndex="String68" name="Suicides Become Zombies" valueIndex="1">
+        <Values defaultIndex="1">
+          <entry nameIndex="String24" descIndex="String14" value="0" />
+          <entry nameIndex="String25" descIndex="String14" value="1" />
+        </Values>
+      </entry>
+    </UserDefinedOptions>
+    <EngineOptions>
+      <Disabled>
+        <Option>1</Option>
+      </Disabled>
+    </EngineOptions>
+    <TU1 PrecisionWeaponReticuleBloom="5.01968527" MagnumDamageMultiplier="1.00393701" MagnumFireRecoveryTimeMultiplier="1.00393701">
+      <ActiveCamoOverrideEnergyCurveMin>0.0196850393</ActiveCamoOverrideEnergyCurveMin>
+      <ActiveCamoOverrideEnergyCurveMax>0.0669291317</ActiveCamoOverrideEnergyCurveMax>
+    </TU1>
+  </Megalo>
+  <MegaloScript version="1" dbVersion="2">
+    <SerializeFlags>EmbedObjects, UseEnumNames, UseIndexNames, WriteConditionTypeNames, WriteActionTypeNames, EmbedObjectsWriteSansIds</SerializeFlags>
+    <Statistics>
+      <Stat nameIndex="String69" format="Time" sortOrder="Ignored" name="Survival Time" />
+      <Stat nameIndex="String70" format="Numeric" sortOrder="Ignored" name="Infections" />
+    </Statistics>
+    <HudWidgets>
+      <Widget position="BottomCenter" name="Widget0" />
+    </HudWidgets>
+    <ObjectFilters>
+      <Filter labelIndex="infection" name="infection" />
+      <Filter labelIndex="inf_spawn" name="inf_spawn" />
+      <Filter labelIndex="inf_haven" name="inf_haven" />
+      <Filter labelIndex="moving" name="moving" />
+      <Filter labelIndex="direction" name="direction" />
+      <Filter labelIndex="switch" name="switch" />
+    </ObjectFilters>
+    <GlobalVariables>
+      <Numeric>
+        <Var networkState="LowPriority" name="GlobalNumeric0" varRefType="Immediate">0</Var>
+        <Var name="GlobalNumeric1" varRefType="Immediate">0</Var>
+        <Var networkState="HighPriority" name="GlobalNumeric2" varRefType="Immediate">1</Var>
+        <Var name="GlobalNumeric3" varRefType="Immediate">0</Var>
+        <Var name="GlobalNumeric4" varRefType="Immediate">0</Var>
+      </Numeric>
+      <Timers>
+        <Var name="GlobalTimerHavenTimer" varRefType="UserDefinedOption">Haven Timer</Var>
+        <Var name="GlobalTimer1" varRefType="Immediate">10</Var>
+      </Timers>
+      <Players>
+        <Var name="GlobalPlayer0" />
+        <Var name="GlobalPlayer1" />
+        <Var name="GlobalPlayer2" />
+      </Players>
+      <Objects>
+        <Var networkState="LowPriority" name="GlobalObject0" />
+        <Var name="GlobalObject1" />
+        <Var networkState="HighPriority" name="GlobalObject2" />
+        <Var networkState="HighPriority" name="GlobalObject3" />
+      </Objects>
+    </GlobalVariables>
+    <PlayerVariables>
+      <Numeric>
+        <Var networkState="LowPriority" name="PlayerNumeric0" varRefType="Immediate">0</Var>
+        <Var networkState="LowPriority" name="PlayerNumeric1" varRefType="Immediate">0</Var>
+        <Var networkState="LowPriority" name="PlayerNumeric2" varRefType="Immediate">1</Var>
+        <Var networkState="LowPriority" name="PlayerNumeric3" varRefType="Immediate">0</Var>
+      </Numeric>
+      <Timers>
+        <Var name="PlayerTimer0" varRefType="Immediate">1</Var>
+        <Var name="PlayerTimer1" varRefType="Immediate">5</Var>
+        <Var name="PlayerTimer2" varRefType="Immediate">1</Var>
+      </Timers>
+      <Objects>
+        <Var networkState="HighPriority" name="PlayerObject0" />
+        <Var networkState="HighPriority" name="PlayerObject1" />
+      </Objects>
+    </PlayerVariables>
+    <ObjectVariables>
+      <Numeric>
+        <Var networkState="HighPriority" name="ObjectNumeric0" varRefType="Immediate">0</Var>
+        <Var networkState="HighPriority" name="ObjectNumeric1" varRefType="Immediate">0</Var>
+      </Numeric>
+      <Timers>
+        <Var name="ObjectTimerHavenTimer" varRefType="UserDefinedOption">Haven Timer</Var>
+      </Timers>
+      <Players>
+        <Var name="ObjectPlayer0" />
+        <Var name="ObjectPlayer1" />
+      </Players>
+      <Objects>
+        <Var networkState="HighPriority" name="ObjectObject0" />
+        <Var networkState="HighPriority" name="ObjectObject1" />
+        <Var networkState="HighPriority" name="ObjectObject2" />
+        <Var networkState="HighPriority" name="ObjectObject3" />
+      </Objects>
+    </ObjectVariables>
+    <Values />
+    <Triggers>
+      <Trigger execMode="OnObjectFilter" name="Trigger0" objectFilter="switch">
+        <Elements>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger0_InnerLoop1">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                  <E type="Action" DBID="2" name="create_object">
+                    <Param type="ObjectTypeIndex">bomb</Param>
+                    <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                    <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                    <Param type="ObjectFilterIndex">NONE</Param>
+                    <Param type="CreateObjectFlags">0</Param>
+                    <Param type="Point3d" />
+                    <Param type="NameIndex">NONE</Param>
+                  </E>
+                  <E type="Action" DBID="33" name="object_attach">
+                    <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                    <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                    <Param type="Point3d" />
+                    <Param type="Bool">true</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer2" />
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="NONE" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="19" name="get_player_holding_object">
+            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="GlobalPlayer2" />
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer2" />
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="NONE" />
+            <Param type="ComparisonType">NotEqual</Param>
+          </E>
+          <E type="Action" DBID="3" name="delete_object">
+            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnObjectFilter" name="Trigger0_InnerLoop2" objectFilter="moving">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="CurrentObject" />
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="GlobalObject2" />
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric1</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnObjectFilter" name="Trigger3" objectFilter="moving">
+        <Elements>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnObjectFilter" name="Trigger3_InnerLoop4" objectFilter="direction">
+                <Elements>
+                  <E type="Condition" DBID="2" name="object_in_area">
+                    <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                    <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                  </E>
+                  <E type="Action" DBID="20" name="for_each">
+                    <Param type="TriggerReference">
+                      <T type="Trigger" trigType="InnerLoop" name="Trigger3_InnerLoop4_InnerLoop5">
+                        <Elements>
+                          <E type="Condition" DBID="1" name="if">
+                            <Param type="VarReference" varRefKind="Team" varRefType="Object.OwnerTeam" dataType="CurrentObject" />
+                            <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team0" />
+                            <Param type="ComparisonType">Equal</Param>
+                          </E>
+                          <E type="Action" DBID="9" name="set">
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric0</Param>
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                            <Param type="OperationType">Set</Param>
+                          </E>
+                          <E type="Action" DBID="20" name="for_each">
+                            <Param type="TriggerReference">
+                              <T type="Trigger" trigType="InnerLoop" execMode="OnObjectFilter" name="Trigger3_InnerLoop4_InnerLoop5_InnerLoop6" objectFilter="switch">
+                                <Elements>
+                                  <E type="Condition" DBID="1" name="if">
+                                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="CurrentObject" />
+                                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="GlobalObject2" />
+                                    <Param type="ComparisonType">Equal</Param>
+                                  </E>
+                                  <E type="Action" DBID="9" name="set">
+                                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric0</Param>
+                                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                                    <Param type="OperationType">Add</Param>
+                                  </E>
+                                </Elements>
+                              </T>
+                            </Param>
+                          </E>
+                          <E type="Condition" DBID="1" name="if">
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric1</Param>
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                            <Param type="ComparisonType">Equal</Param>
+                          </E>
+                          <E type="Action" DBID="9" name="set">
+                            <Param type="VarReference" varRefKind="Object" varRefType="Object.ObjectVar" dataType="GlobalObject2">ObjectObject3</Param>
+                            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="OperationType">Set</Param>
+                          </E>
+                          <E type="Action" DBID="9" name="set">
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric0</Param>
+                            <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="CurrentObject" />
+                            <Param type="OperationType">Set</Param>
+                          </E>
+                          <E type="Action" DBID="9" name="set">
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric0</Param>
+                            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">100</Param>
+                            <Param type="OperationType">Add</Param>
+                          </E>
+                        </Elements>
+                      </T>
+                    </Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Team" varRefType="Object.OwnerTeam" dataType="CurrentObject" />
+                    <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team0" />
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Object" varRefType="Object.ObjectVar" dataType="GlobalObject2">ObjectObject3</Param>
+                    <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="CurrentObject" />
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">100</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric1</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Condition" DBID="2" name="object_in_area" invert="true">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject3</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric1</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnObjectFilter" name="Trigger3_InnerLoop7" objectFilter="switch">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="CurrentObject" />
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDataOnObject" dataType="GlobalObject2" />
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger trigType="Local" name="LocalTrigger">
+        <Elements>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnObjectFilter" name="LocalTrigger_InnerLoop9" objectFilter="moving">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="CurrentObject">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                    <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="20" name="for_each">
+                    <Param type="TriggerReference">
+                      <T type="Trigger" trigType="InnerLoop" execMode="OnEachObject" name="LocalTrigger_InnerLoop9_InnerLoop10">
+                        <Elements>
+                          <E type="Condition" DBID="6" name="object_is_type">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectTypeIndex">spartan</Param>
+                          </E>
+                          <E type="Condition" DBID="6" name="object_is_type" unionGroupID="-3">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectTypeIndex">elite</Param>
+                          </E>
+                          <E type="Condition" DBID="11" name="object_matches_filter" unionGroupID="-3">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectFilterIndex">moving</Param>
+                          </E>
+                          <E type="Condition" DBID="2" name="object_in_area">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                          </E>
+                          <E type="Condition" DBID="1" name="if" unionGroupID="-3">
+                            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ComparisonType">Equal</Param>
+                          </E>
+                          <E type="Action" DBID="2" name="create_object">
+                            <Param type="ObjectTypeIndex">area</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                            <Param type="ObjectFilterIndex">NONE</Param>
+                            <Param type="CreateObjectFlags">0</Param>
+                            <Param type="Point3d" />
+                            <Param type="NameIndex">NONE</Param>
+                          </E>
+                          <E type="Action" DBID="91" name="object_set_orientation">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="GlobalObject2">ObjectObject3</Param>
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="2" name="create_object">
+                            <Param type="ObjectTypeIndex">area</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                            <Param type="ObjectFilterIndex">NONE</Param>
+                            <Param type="CreateObjectFlags">0</Param>
+                            <Param type="Point3d" />
+                            <Param type="NameIndex">NONE</Param>
+                          </E>
+                          <E type="Action" DBID="91" name="object_set_orientation">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="GlobalObject2">ObjectObject3</Param>
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="Point3d" x="1" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="52" name="object_set_scale">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="CustomReference" varRefType="Object.NumericVar" dataType="GlobalObject2">ObjectNumeric0</Param>
+                          </E>
+                          <E type="Action" DBID="2" name="create_object">
+                            <Param type="ObjectTypeIndex">area</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject2</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject2" />
+                            <Param type="ObjectFilterIndex">NONE</Param>
+                            <Param type="CreateObjectFlags">0</Param>
+                            <Param type="Point3d" />
+                            <Param type="NameIndex">NONE</Param>
+                          </E>
+                          <E type="Action" DBID="91" name="object_set_orientation">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject2</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="GlobalObject2">ObjectObject3</Param>
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject2</Param>
+                            <Param type="Point3d" x="-1" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject2</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="Point3d" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="Point3d" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="3" name="delete_object">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject2</Param>
+                          </E>
+                          <E type="Condition" DBID="6" name="object_is_type">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectTypeIndex">spartan</Param>
+                          </E>
+                          <E type="Condition" DBID="6" name="object_is_type" unionGroupID="-3">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectTypeIndex">elite</Param>
+                          </E>
+                          <E type="Action" DBID="2" name="create_object">
+                            <Param type="ObjectTypeIndex">area</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectFilterIndex">NONE</Param>
+                            <Param type="CreateObjectFlags">0</Param>
+                            <Param type="Point3d" />
+                            <Param type="NameIndex">NONE</Param>
+                          </E>
+                          <E type="Action" DBID="2" name="create_object">
+                            <Param type="ObjectTypeIndex">area</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectFilterIndex">NONE</Param>
+                            <Param type="CreateObjectFlags">0</Param>
+                            <Param type="Point3d" />
+                            <Param type="NameIndex">NONE</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="Point3d" z="1" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="52" name="object_set_scale">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="CustomReference" varRefType="Immediate">101</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="Point3d" z="-1" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="33" name="object_attach">
+                            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="CurrentObject" />
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject1</Param>
+                            <Param type="Point3d" />
+                            <Param type="Bool">true</Param>
+                          </E>
+                          <E type="Action" DBID="3" name="delete_object">
+                            <Param type="ObjectReference" varRefType="Object.ObjectVar" dataType="CurrentObject">ObjectObject0</Param>
+                          </E>
+                        </Elements>
+                      </T>
+                    </Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger11">
+        <Elements>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger11_InnerLoop12">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Action" DBID="20" name="for_each">
+                    <Param type="TriggerReference">
+                      <T type="Trigger" trigType="InnerLoop" name="Trigger11_InnerLoop12_InnerLoop13">
+                        <Elements>
+                          <E type="Condition" DBID="15" name="player_is_elite">
+                            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                          </E>
+                          <E type="Action" DBID="77" name="set_loadout_palette">
+                            <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                            <Param type="LoadoutPaletteReference">2</Param>
+                          </E>
+                        </Elements>
+                      </T>
+                    </Param>
+                  </E>
+                  <E type="Action" DBID="20" name="for_each">
+                    <Param type="TriggerReference">
+                      <T type="Trigger" trigType="InnerLoop" name="Trigger11_InnerLoop12_InnerLoop14">
+                        <Elements>
+                          <E type="Condition" DBID="15" name="player_is_elite" invert="true">
+                            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                          </E>
+                          <E type="Action" DBID="77" name="set_loadout_palette">
+                            <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                            <Param type="LoadoutPaletteReference">1</Param>
+                          </E>
+                        </Elements>
+                      </T>
+                    </Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger11_InnerLoop15">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="20" name="for_each">
+                    <Param type="TriggerReference">
+                      <T type="Trigger" trigType="InnerLoop" name="Trigger11_InnerLoop15_InnerLoop16">
+                        <Elements>
+                          <E type="Condition" DBID="15" name="player_is_elite">
+                            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                          </E>
+                          <E type="Action" DBID="77" name="set_loadout_palette">
+                            <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                            <Param type="LoadoutPaletteReference">4</Param>
+                          </E>
+                        </Elements>
+                      </T>
+                    </Param>
+                  </E>
+                  <E type="Action" DBID="20" name="for_each">
+                    <Param type="TriggerReference">
+                      <T type="Trigger" trigType="InnerLoop" name="Trigger11_InnerLoop15_InnerLoop17">
+                        <Elements>
+                          <E type="Condition" DBID="15" name="player_is_elite" invert="true">
+                            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                          </E>
+                          <E type="Action" DBID="77" name="set_loadout_palette">
+                            <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                            <Param type="LoadoutPaletteReference">3</Param>
+                          </E>
+                        </Elements>
+                      </T>
+                    </Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger18">
+        <Elements>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric4</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">-1</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger18_InnerLoop19">
+                <Elements>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric4</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayerRandomly" name="Trigger18_InnerLoop20">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Zombie Count</Param>
+                    <Param type="ComparisonType">LessThan</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric4</Param>
+                    <Param type="ComparisonType">LessThan</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric1</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger18_InnerLoop21">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Team" varRefType="Player.OwnerTeam" dataType="CurrentPlayer" />
+                    <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team1" />
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Action" DBID="75" name="submit_incident">
+                    <Param type="IncidentId">inf_new_zombie</Param>
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="NONE" />
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Team" varRefType="Player.OwnerTeam" dataType="CurrentPlayer" />
+                    <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team1" />
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="11" name="apply_player_traits">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="PlayerTraitsReference">Infected Traits</Param>
+                  </E>
+                  <E type="Action" DBID="23" name="object_destroy">
+                    <Param type="ObjectReference" varRefType="Player.SlaveObject" dataType="CurrentPlayer" />
+                    <Param type="Bool">true</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger22">
+        <Elements>
+          <E type="Action" DBID="46" name="hud_widget_set_text">
+            <Param type="Widget">Widget0</Param>
+            <Param type="Tokens2" stringIndex="String71" tokenCount="1">
+              <Token0 type="Timer" varRefType="Global.TimerVar">GlobalTimerHavenTimer</Token0>
+            </Param>
+          </E>
+          <E type="Action" DBID="50" name="hud_widget_set_visibility">
+            <Param type="Widget">Widget0</Param>
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="Bool">false</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger23">
+        <Elements>
+          <E type="Action" DBID="17" name="timer_set_rate">
+            <Param type="TimerReference" varRefType="Player.TimerVar" dataType="CurrentPlayer">PlayerTimer1</Param>
+            <Param type="TimerRate">Minus100p</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger23_InnerLoop24">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Team" varRefType="Player.OwnerTeam" dataType="CurrentPlayer" />
+                    <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team0" />
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="56" name="player_set_objective">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="Tokens2" stringIndex="String72" />
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger23_InnerLoop25">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Team" varRefType="Player.OwnerTeam" dataType="CurrentPlayer" />
+                    <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team1" />
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="56" name="player_set_objective">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="Tokens2" stringIndex="String73" />
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger26">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Condition" DBID="5" name="timer_expired">
+            <Param type="TimerReference" varRefType="Player.TimerVar" dataType="CurrentPlayer">PlayerTimer1</Param>
+          </E>
+          <E type="Action" DBID="75" name="submit_incident">
+            <Param type="IncidentId">infection_game_start</Param>
+            <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="NONE" />
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger27">
+        <Elements>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Team" varRefType="Player.OwnerTeam" dataType="CurrentPlayer" />
+            <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team0" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Team" varRefType="Player.OwnerTeam" dataType="CurrentPlayer" />
+            <Param type="VarReference" varRefKind="Team" varRefType="ExplicitTeamType" dataType="Team1" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="11" name="apply_player_traits">
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="PlayerTraitsReference">Infected Traits</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger28">
+        <Elements>
+          <E type="Condition" DBID="3" name="player_died">
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="KillerTypeFlags">Environment, Suicide, Enemy, Betrayal, QuitGame</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric1</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer0" />
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+            <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="NONE" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="29" name="player_death_get_killing_player">
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger28_InnerLoop29">
+                <Elements>
+                  <E type="Condition" DBID="3" name="player_died">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="KillerTypeFlags">Enemy</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer1">PlayerNumeric0</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Kill Points</Param>
+                  </E>
+                  <E type="Action" DBID="75" name="submit_incident">
+                    <Param type="IncidentId">zombie_kill_kill</Param>
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer0" />
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger28_InnerLoop30">
+                <Elements>
+                  <E type="Condition" DBID="3" name="player_died">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="KillerTypeFlags">Enemy</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Safe Havens</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer1">PlayerNumeric0</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer1">PlayerNumeric2</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Haven Points</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger28_InnerLoop31">
+                <Elements>
+                  <E type="Condition" DBID="3" name="player_died">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="KillerTypeFlags">Enemy</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if" invert="true">
+                    <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="VarReference" varRefKind="Player" varRefType="ExplicitPlayerType" dataType="NONE" />
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="75" name="submit_incident">
+                    <Param type="IncidentId">inf_new_infection</Param>
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer0" />
+                  </E>
+                  <E type="Action" DBID="75" name="submit_incident">
+                    <Param type="IncidentId">infection_kill</Param>
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer0" />
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Zombie Kill Points</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="PlayerStatistic" dataType="GlobalPlayer1">Infections</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger28_InnerLoop32">
+                <Elements>
+                  <E type="Condition" DBID="3" name="player_died">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="KillerTypeFlags">Suicide</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Suicide Points</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Suicides Become Zombies</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger28_InnerLoop33">
+                <Elements>
+                  <E type="Condition" DBID="3" name="player_died">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="KillerTypeFlags">Betrayal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer0">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="GlobalPlayer1">PlayerNumeric0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="GlobalPlayer1" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Betrayal Points</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger34">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Safe Havens</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="NONE" />
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="96" name="get_random_object">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject1" />
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="ObjectFilterIndex">inf_haven</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" name="Trigger34_InnerLoop35">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric1</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="75" name="submit_incident">
+                    <Param type="IncidentId">hill_moved</Param>
+                    <Param type="TargetVar" targetType="None" />
+                    <Param type="TargetVar" targetType="None" />
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric1</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger36">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Safe Havens</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Condition" DBID="5" name="timer_expired">
+            <Param type="TimerReference" varRefType="Global.TimerVar">GlobalTimerHavenTimer</Param>
+          </E>
+          <E type="Action" DBID="17" name="timer_set_rate">
+            <Param type="TimerReference" varRefType="Global.TimerVar">GlobalTimerHavenTimer</Param>
+            <Param type="TimerRate">None</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Timer" varRefType="Global.TimerVar">GlobalTimerHavenTimer</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Haven Timer</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="4" name="navpoint_set_visible">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="TeamFilterParameters" filterType="NoOne" />
+          </E>
+          <E type="Action" DBID="22" name="boundary_set_visible">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="TeamFilterParameters" filterType="NoOne" />
+          </E>
+          <E type="Action" DBID="7" name="navpoint_set_timer">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="Object.Timer">NONE</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject0">ObjectNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject1" />
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="VarReference" varRefKind="Object" varRefType="ExplicitObjectType" dataType="NONE" />
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="96" name="get_random_object">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject1" />
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="ObjectFilterIndex">inf_haven</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger37">
+        <Elements>
+          <E type="Action" DBID="4" name="navpoint_set_visible">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="TeamFilterParameters" filterType="Everyone" />
+          </E>
+          <E type="Action" DBID="5" name="navpoint_set_icon">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="NavpointIconParameters" iconType="Hill" />
+          </E>
+          <E type="Action" DBID="22" name="boundary_set_visible">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="TeamFilterParameters" filterType="Everyone" />
+          </E>
+          <E type="Action" DBID="6" name="navpoint_set_priority">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="NavpointPriority">High</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger38">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Safe Havens</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger38_InnerLoop39">
+                <Elements>
+                  <E type="Condition" DBID="2" name="object_in_area">
+                    <Param type="ObjectReference" varRefType="Player.SlaveObject" dataType="CurrentPlayer" />
+                    <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject0">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="17" name="timer_set_rate">
+                    <Param type="TimerReference" varRefType="Global.TimerVar">GlobalTimerHavenTimer</Param>
+                    <Param type="TimerRate">Minus100p</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject0">ObjectNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Object.NumericVar" dataType="GlobalObject0">ObjectNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Timer" varRefType="Object.TimerVar" dataType="GlobalObject0">ObjectTimerHavenTimer</Param>
+            <Param type="VarReference" varRefKind="Timer" varRefType="Global.TimerVar">GlobalTimerHavenTimer</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="7" name="navpoint_set_timer">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="Object.Timer">ObjectTimerHavenTimer</Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Timer" varRefType="Object.TimerVar" dataType="GlobalObject0">ObjectTimerHavenTimer</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">6</Param>
+            <Param type="ComparisonType">LessThan</Param>
+          </E>
+          <E type="Action" DBID="6" name="navpoint_set_priority">
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+            <Param type="NavpointPriority">Blink</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger40">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Last Man Standing</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger40_InnerLoop41">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if" invert="true">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger40_InnerLoop42">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if" invert="true">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="11" name="apply_player_traits">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="PlayerTraitsReference">Last Man Standing Traits</Param>
+                  </E>
+                  <E type="Action" DBID="5" name="navpoint_set_icon">
+                    <Param type="ObjectReference" varRefType="Player.SlaveObject" dataType="CurrentPlayer" />
+                    <Param type="NavpointIconParameters" iconType="Skull" />
+                  </E>
+                  <E type="Action" DBID="6" name="navpoint_set_priority">
+                    <Param type="ObjectReference" varRefType="Player.SlaveObject" dataType="CurrentPlayer" />
+                    <Param type="NavpointPriority">High</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric1</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Last Man Standing Points</Param>
+                  </E>
+                  <E type="Action" DBID="75" name="submit_incident">
+                    <Param type="IncidentId">inf_last_man</Param>
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="TargetVar" targetType="None" />
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger43">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric1</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="11" name="apply_player_traits">
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="PlayerTraitsReference">Last Man Standing Traits</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger44">
+        <Elements>
+          <E type="Action" DBID="50" name="hud_widget_set_visibility">
+            <Param type="Widget">Widget0</Param>
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="Bool">false</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric2</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="UserDefinedOption">Safe Havens</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Condition" DBID="2" name="object_in_area">
+            <Param type="ObjectReference" varRefType="Player.SlaveObject" dataType="CurrentPlayer" />
+            <Param type="ObjectReference" varRefType="ExplicitObjectType" dataType="GlobalObject0" />
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric2</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="11" name="apply_player_traits">
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="PlayerTraitsReference">Haven Traits</Param>
+          </E>
+          <E type="Action" DBID="50" name="hud_widget_set_visibility">
+            <Param type="Widget">Widget0</Param>
+            <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+            <Param type="Bool">true</Param>
+          </E>
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger45">
+        <Elements>
+          <E type="Action" DBID="17" name="timer_set_rate">
+            <Param type="TimerReference" varRefType="Global.TimerVar">GlobalTimer1</Param>
+            <Param type="TimerRate">Minus100p</Param>
+          </E>
+          <E type="Condition" DBID="5" name="timer_expired">
+            <Param type="TimerReference" varRefType="Global.TimerVar">GlobalTimer1</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger45_InnerLoop46">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger45_InnerLoop47">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Condition" DBID="3" name="player_died">
+                    <Param type="PlayerReference" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="KillerTypeFlags">Suicide</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="OperationType">Set</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="75" name="submit_incident">
+            <Param type="IncidentId">infection_zombie_win</Param>
+            <Param type="TargetVar" targetType="None" />
+            <Param type="TargetVar" targetType="None" />
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger45_InnerLoop48">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric1</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">NotEqual</Param>
+                  </E>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Zombie Victory</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="21" name="end_round" />
+        </Elements>
+      </Trigger>
+      <Trigger name="Trigger49">
+        <Elements>
+          <E type="Condition" DBID="5" name="timer_expired">
+            <Param type="TimerReference" varRefType="RoundTimer" />
+          </E>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="RoundTimeLimit" />
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">GreaterThan</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="OperationType">Set</Param>
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger49_InnerLoop50">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="9" name="set">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+                    <Param type="OperationType">Add</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Condition" DBID="1" name="if" invert="true">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Global.NumericVar">GlobalNumeric3</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="75" name="submit_incident">
+            <Param type="IncidentId">infection_survivor_win</Param>
+            <Param type="TargetVar" targetType="None" />
+            <Param type="TargetVar" targetType="None" />
+          </E>
+          <E type="Action" DBID="20" name="for_each">
+            <Param type="TriggerReference">
+              <T type="Trigger" trigType="InnerLoop" execMode="OnEachPlayer" name="Trigger49_InnerLoop51">
+                <Elements>
+                  <E type="Condition" DBID="1" name="if">
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+                    <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+                    <Param type="ComparisonType">Equal</Param>
+                  </E>
+                  <E type="Action" DBID="1" name="set_score">
+                    <Param type="TargetVar" targetType="Player" varRefType="ExplicitPlayerType" dataType="CurrentPlayer" />
+                    <Param type="OperationType">Add</Param>
+                    <Param type="CustomReference" varRefType="UserDefinedOption">Survivor Victory</Param>
+                  </E>
+                </Elements>
+              </T>
+            </Param>
+          </E>
+          <E type="Action" DBID="21" name="end_round" />
+        </Elements>
+      </Trigger>
+      <Trigger execMode="OnEachPlayer" name="Trigger52">
+        <Elements>
+          <E type="Condition" DBID="1" name="if">
+            <Param type="VarReference" varRefKind="Custom" varRefType="Player.NumericVar" dataType="CurrentPlayer">PlayerNumeric0</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">0</Param>
+            <Param type="ComparisonType">Equal</Param>
+          </E>
+          <E type="Action" DBID="17" name="timer_set_rate">
+            <Param type="TimerReference" varRefType="Player.TimerVar" dataType="CurrentPlayer">PlayerTimer2</Param>
+            <Param type="TimerRate">Minus100p</Param>
+          </E>
+          <E type="Condition" DBID="5" name="timer_expired">
+            <Param type="TimerReference" varRefType="Player.TimerVar" dataType="CurrentPlayer">PlayerTimer2</Param>
+          </E>
+          <E type="Action" DBID="9" name="set">
+            <Param type="VarReference" varRefKind="Custom" varRefType="PlayerStatistic" dataType="CurrentPlayer">Survival Time</Param>
+            <Param type="VarReference" varRefKind="Custom" varRefType="Immediate">1</Param>
+            <Param type="OperationType">Add</Param>
+          </E>
+          <E type="Action" DBID="43" name="timer_reset">
+            <Param type="TimerReference" varRefType="Player.TimerVar" dataType="CurrentPlayer">PlayerTimer2</Param>
+          </E>
+        </Elements>
+      </Trigger>
+    </Triggers>
+    <EntryPoints>
+      <Local>LocalTrigger</Local>
+    </EntryPoints>
+  </MegaloScript>
+</GameVariant>
