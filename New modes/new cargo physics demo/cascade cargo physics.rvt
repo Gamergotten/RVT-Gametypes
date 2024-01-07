@@ -1,0 +1,227 @@
+
+-- ---------------------- --
+-- DECLARATIONS & ALIASES --
+-- ---------------------- --
+-- mover aliases
+alias destination = global.object[0]
+alias mover_agent = global.object[1]
+alias mover_speed = 10 -- 0.1 offset units per tick
+alias mover_tick_interval = 1
+alias mover_ticks = global.number[2]
+
+-- cargo phys aliases
+alias knee = object.object[0] -- used as 'tip' or 'point' in cascade operation, but when completed becomes the knee/joint of a connection
+alias foot = object.object[1] -- opposite end of the triangle object formation
+
+alias cascade_length = 20
+alias cascade_amount = 50
+
+alias cargo_tick_interval = 1
+alias cargo_ticks = global.number[1]
+
+-- temps
+alias temp_obj0 = global.object[2]
+alias temp_obj1 = global.object[3]
+alias temp_obj2 = global.object[4]
+alias temp_obj3 = global.object[5]
+alias temp_obj4 = global.object[6]
+alias temp_num0 = global.number[0]
+
+-- ---------------------------- --
+-- SIMPLE OBJECT MOVEMENT LOGIC --
+-- ---------------------------- --
+do 
+	mover_ticks += 1
+	if mover_ticks >= mover_tick_interval then
+		for each object with label "move" do
+			if destination != no_object then
+				current_object.face_toward(destination, 0,0,0)
+				if mover_agent == no_object then -- if the mover agent doesn't exist, then spawn it in
+					mover_agent = current_object.place_at_me(sound_emitter_alarm_2, none,none,0,0,0,none)
+				end
+				mover_agent.set_scale(100)
+				mover_agent.copy_rotation_from(current_object, true)
+				mover_agent.attach_to(current_object, 0,0,0, relative) -- update pos
+				mover_agent.detach()
+				-- then do the scaled offset movement
+				current_object.attach_to(mover_agent,1,0,0,relative)
+				mover_agent.set_scale(mover_speed)
+				mover_agent.copy_rotation_from(mover_agent, true)
+				current_object.detach()
+
+				-- now measure the distance to the destination & clear if we're close enough
+				-- NOTE: this will not work if the destination is not close on the height axis
+				temp_num0 = current_object.get_distance_to(destination)
+				if temp_num0 < 15 then
+					destination.delete()
+				end
+			end
+		end
+	end
+end
+-- setting up destination objects
+on object death: do
+	destination.delete() -- clear any previous destination object
+	destination = killed_object.place_at_me(soccer_ball, none, none, 0,0,0, none)
+end
+
+
+
+-- --------------------- --
+-- CASCADE CARGO PHYSICS --
+-- --------------------- --
+-- // inputs //
+alias counter = temp_num0
+alias src = temp_obj0
+alias dst = temp_obj1
+function cascade_loop()
+	src.face_toward(dst.knee, 0,0,0)
+	dst.face_toward(src.knee, 0,0,0)
+	counter += 1
+	if counter < cascade_amount then
+		cascade_loop()
+	end
+end
+
+-- // inputs //
+alias src_location = temp_obj0
+alias dst_location = temp_obj1
+-- // outputs //
+-- src = temp_obj0
+-- // internals //
+-- dst = temp_obj1
+alias rotation_helper = temp_obj2
+function cascade() 
+	-- DEBUG: too far apart exception
+	temp_num0 = src_location.get_distance_to(dst_location)
+	temp_num0 /= 2 -- we need to check if distance is greater than twice the cascade length, alternatively we check if half the distance is greater than a single cascade length
+	if temp_num0 > cascade_length then
+		game.show_message_to(all_players, none, "failure: range exceeded, increase the 'cascade_length'")
+	end
+	--
+
+	-- essentially create editable versions of the locations
+	src = src_location.place_between_me_and(src_location, capture_plate, 0)
+	dst = dst_location.place_between_me_and(dst_location, flag_stand, 0)
+	
+	-- create rotation helper to orient our locations towards another
+	-- NOTE: we could replace this with a global helper object, so that it only needs to be spawned in once, however reseting coords might not be the easiest, which is probably why we always spawned it from scratch in the original pitch axis functions
+	rotation_helper = src.place_at_me(sound_emitter_alarm_2, none,none, 0,0,0, none)
+	rotation_helper.attach_to(src, 0,0,0, relative)
+	rotation_helper.detach()
+	-- then offset rotation, converting roll to pitch
+	rotation_helper.face_toward(rotation_helper,0,-1,0)
+	src.attach_to(rotation_helper, 0,0,0,relative)
+	-- then correct our src's yaw to face towards dst
+	rotation_helper.face_toward(dst, 0,0,0)
+	src.detach()
+	rotation_helper.delete() -- no longer needed
+	-- we can simply copy the rotation over to dst as well, so they will now have the exact same pitch heading
+	dst.copy_rotation_from(src, true)
+	
+	-- setup the edge things
+	src.knee = src.place_between_me_and(src, flag_stand, 0)
+	dst.knee = dst.place_between_me_and(src, sound_emitter_alarm_2, 0)
+	-- src knee needs to have the same orientation, so we can rotate it later
+	src.knee.copy_rotation_from(src, true)
+
+	src.knee.attach_to(src, cascade_length,0,0, relative)
+	dst.knee.attach_to(dst, cascade_length,0,0, relative)
+	
+	-- apply a rotation to dst, so if the two points are exactly ontop of another, they wouldn't fail to find a common middle point
+	-- plus this should also make it find common middle points more consistently
+	-- NOTE: this actually did not even nearly work as intended, it subtly broke a lot of the mechanics, no idea why
+	--dst.face_toward(dst, 0,-1,0)
+
+	-- call the cascade recursive function
+	counter = 0
+	cascade_loop()
+	dst.knee.delete() -- no longer needed
+	
+	-- fixup src.knee 
+	src.knee.detach()
+	src.knee.face_toward(dst, 0,0,0)
+	src.knee.attach_to(src, cascade_length,0,0, relative)
+	-- bind foot to our thing
+	dst.attach_to(src.knee, cascade_length,0,0, relative)
+	src.foot = dst
+end
+
+-- actual cargo phys function
+-- on local: 
+alias global_pos = player.object[0] -- single, unattached object
+alias relative_pos = player.object[1] -- cascade attach cluster (object is src, contains .obj[0]: knee, .obj[1]: foot)
+alias current_mover = temp_obj3
+do
+	cargo_ticks += 1
+	if cargo_ticks >= cargo_tick_interval then
+		cargo_ticks = 0
+		for each player do
+			
+			-- look for the current mover
+			current_mover = no_object
+			if current_player.biped != no_object then
+				for each object with label "move" do
+					if current_object.shape_contains(current_player.biped) then
+						current_mover = current_object -- this could cause issues if one vehicle/mover overlaps with another
+					end
+				end
+				if current_mover == no_object and current_player.relative_pos != no_object then
+					current_player.relative_pos.delete()
+				end
+				if current_mover != no_object then
+					if current_player.global_pos == no_object then
+						current_player.global_pos = current_player.biped.place_at_me(flag_stand, none, none, 0,0,0, none)
+					end
+					-- check if player already has an offset ready to go
+					if current_player.relative_pos != no_object then
+						-- first we generate our offset attach for the difference between our player and where they were last cargo tick
+						src_location = current_player.global_pos
+						dst_location = current_player.biped
+						cascade()
+						temp_obj4 = src
+						-- then we stick that offset to our stored relative position, so the foot of temp_obj4 is our new relative position
+						temp_obj0 = current_player.relative_pos
+						temp_obj4.attach_to(temp_obj0.foot, 0,0,0, relative)
+						
+						-- then we create a new offset attach from the player to the new relative position
+						src_location = current_player.biped
+						dst_location = temp_obj4.foot
+						cascade()
+						-- attach the offset to the player (its already at the player, just not attached)
+						src.attach_to(current_player.biped, 0,0,0, relative)
+						-- complete the offset by attaching the player to the foot of this, maintaining momentumn & automaticallly detaching them
+						current_player.biped.attach_to(src.foot, 0,0,0, relative)
+
+						-- cleanup
+						src.delete()
+						temp_obj4.delete()
+						current_player.relative_pos.delete()
+					end
+					
+					-- update previous position
+					current_player.global_pos.attach_to(current_player.biped, 0,0,0, relative)
+					current_player.global_pos.detach()
+
+					-- generate current relative position
+					src_location = current_mover
+					dst_location = current_player.biped
+					cascade()
+					src.attach_to(current_mover, 0,0,0, relative)
+					current_player.relative_pos = src
+				end
+			end
+		end
+	end
+end
+
+
+
+
+
+
+
+
+
+
+
