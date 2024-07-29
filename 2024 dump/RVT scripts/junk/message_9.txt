@@ -1,0 +1,99 @@
+game time unlimited
+leg health too much
+remove seraph projectile script
+scarab main cannon ignore the falcons players
+AA turret needs to be more deadly
+hide leg waypoint for allies
+Scarab needs to eventually get to the objective also
+longer burst interval scarab main cannon
+capture time of territories needs increasing (to a whole minute? and then 30 seconds recover)
+scarab needs to be downed for longer: 30 seconds
+territory lost announcement when tower is lost?
+announcement when scarab leg is destroyed?
+announce_a_under_attack - building is being damaged by scarab + blinking marker
+health indication on legs (restore functionality or new implemeentation?) meter on the screen
+shoutout message
+replace scarab projectiles with covenant bomb explosions? that might be too overpowered
+message to players to attack legs "Take down all of the legs to expose the core"
+intro music cue
+test team color of the core
+scarab chassis local rotation
+set team color of territory boundary
+player traits inside of buildings
+dont display cargo phys phsyics in vehicle
+early debris cleanup script - bipeds & vehicle cleanup
+hide fortified text when in vehicle
+AA turret "mini objective" fix
+0.75 x seraph health
+lower territory cap to 45
+UNSC bombs for flak cannon 
+fix the weird ghost movements
+fix collision depth on projectiles
+objective text shouldn't be showing for elites
+fortified text showing on non fortify locations (red team?)
+prevent entering seraph script
+SOMETHING TO NOTIFY PLAYERS THAT THE SCARAB IS DOWNED
+
+
+
+
+
+### MAP NOTES
+despawning players/objects
+players get stuck in spawning screen
+ENCOURAGE PLAYERS TO GET ON SCARAB THROUGH TELEPORT
+get rid of some of the falcons
+accessibility for non-jetpack players (mainly on the main objective)
+accessibility for jetpack players, ability to reach higher structures
+spawns & brospawns need improving
+covenant spawn room needs reorganizing to encourage infantry to board the scarab
+more weapns to combat falcons
+funnel players to objective?
+potentially decrease lag? idk how
+main building did not collapse correctly
+
+### MODE NOTES
+ANTI DISTRACT TIMER ON SCARAB 
+fix AA turret regening health
+fix getting into the seraph
+give general elite sprint
+big text on screen saying you cant destroy the core till the legs are done	 
+betrayal booting off
+destroyed leg counter, + tell players core is locked
+brospawning prevents playes from inheriting new biped
+
+
+### maybe do's
+add turrets/weapons on the buildings (although that would attribute to the vehicle count)
+force spawn players who aren't spawning
+message to player to get to the territiory objectives - resupply zones?
+message to players as to whether core is open or not
+
+
+### OTHER NOTES
+
+shotgun & sword classes were never ever used
+encourage rooftop combat & on scarab combat
+we should remove the grids that act as the walls
+
+
+
+
+
+### TODO
+
+
+### polish
+shrink projectiles
+hide monitors
+
+
+### considerations
+setup longer downed timer for 4th leg getting downed?
+fix scarab leg explosions?
+
+### NOTES:
+negatives have been disabled, the negative leg rotation will wrap around and lose the correct rotation to reach the bomb,
+however this helps keep the legs from inside of the scarab
+
+

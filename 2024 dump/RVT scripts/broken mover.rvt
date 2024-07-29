@@ -1,0 +1,418 @@
+declare object.object[0] with network priority local
+declare object.object[1] with network priority local
+declare object.object[2] with network priority local -- might need to sync
+declare object.object[3] with network priority local -- might need to sync
+
+declare player.object[0] with network priority local
+declare player.object[1] with network priority local
+declare player.object[2] with network priority local
+declare player.object[3] with network priority local
+
+
+-- // ///////////////// //
+-- // GLOBAL VARIABLES //
+-- // /////////////// //
+alias defending_team = team[0] -- defending payload
+alias attacking_team = team[1] -- attacking payload
+
+-- // ////////////////// //
+-- // PAYLOAD VARIABLES //
+-- // //////////////// //
+alias movement_speed = 20
+alias turn_factor = 70 -- [0-127]
+alias payload_moving = global.number[9] -- true/false
+
+alias mover_yaw = global.object[5] -- also the base payload object
+alias mover_pitch = global.object[6]
+alias mover_orient = global.object[9] -- acts as the base for all attachments that require payload pitch rotation
+alias mover_agent = global.object[0]
+alias mover_scalable = global.object[13]
+
+alias prong_left = global.object[1]
+alias prong_right = global.object[2]
+alias prong_up = global.object[3]
+alias prong_down = global.object[4]
+-- TODO: condense these into less numbers
+alias horz_rot_paused_ticks = global.number[4]
+alias vert_rot_paused_ticks = global.number[5]
+alias horz_last_direction = global.number[6]
+alias vert_last_direction = global.number[7]
+
+
+-- // //////////////////// //
+-- // PATH NODE VARIABLES //
+-- // ////////////////// //
+alias next_node = object.object[0]
+alias cum_dist = object.number[0] -- *cumulative* distance
+
+alias curr_node = global.object[10]
+alias total_distance = global.number[8]
+
+-- // /////////////// //
+-- // TEMP VARIABLES //
+-- // ///////////// //
+alias temp_num0 = global.number[0]
+alias temp_num1 = global.number[1]
+alias temp_num2 = global.number[2]
+alias temp_num3 = global.number[3]
+
+alias temp_obj0 = global.object[7]
+alias temp_obj1 = global.object[8]
+alias temp_obj2 = global.object[11]
+alias temp_obj3 = global.object[12]
+
+alias temp_team0 = global.team[0]
+
+
+-- // ///////////////// //
+-- // PLAYER VARIABLES //
+-- // /////////////// //
+-- cargo phys stuff
+alias global_pos = player.object[0] -- single, unattached object
+alias relative_pos = player.object[1] -- cascade attach cluster (object is src, contains .obj[0]: knee, .obj[1]: foot)
+
+-- // ///////////// //
+-- // UI VARIABLES //
+-- // /////////// //
+alias progress_widget = script_widget[0]
+
+-- END OF DECLARATIONS SECTION --
+
+
+
+
+-- // ////////////////////// //
+-- // INITIALIZE EVERYTHING //
+-- // //////////////////// //
+alias iter_node_sequence = temp_num0
+alias iter_lowest_sequence = temp_num1
+alias iter_node = temp_obj0
+alias iter_next_node = temp_obj1
+function recurse_find_next_node()
+    -- find next object in order
+    iter_lowest_sequence = 9999 -- so the first object will always have a lower spawn sequence
+    for each object with label "node" do
+        if current_object.spawn_sequence >= iter_node_sequence and current_object.spawn_sequence < iter_lowest_sequence then
+            iter_node.next_node = current_object
+            iter_lowest_sequence = current_object.spawn_sequence
+        end
+    end
+    -- check for if more iterations are necessary, and append distance data to the next node
+    if iter_node.next_node != no_object then
+        -- update distances
+        temp_num3 = iter_node.get_distance_to(iter_node.next_node)
+        total_distance += temp_num3
+        iter_node = iter_node.next_node
+        iter_node.cum_dist = total_distance -- first node will always have distance of 0, so we dont need to assign to number 1
+        iter_node_sequence = iter_node.spawn_sequence
+        iter_node_sequence += 1
+        recurse_find_next_node()
+    end
+end
+if mover_yaw == no_object then
+    temp_obj0 = get_random_object("p_base", no_object)
+    mover_agent = temp_obj0.place_at_me(block_1x1_flat, none, none, 0,0,0, none)
+    -- setup rotation helper objects
+    mover_pitch = mover_agent.place_between_me_and(mover_agent, capture_plate, 0)
+    mover_yaw = mover_pitch.place_at_me(capture_plate, none, none, 0,0,0, none)
+    mover_orient = mover_pitch.place_at_me(flag_stand, none, none, 0,0,0, none)
+    mover_yaw.face_toward(mover_yaw,0,-1,0)
+    mover_pitch.face_toward(mover_pitch,0,1,0) -- fix pitch so its face forward?
+    mover_orient.copy_rotation_from(mover_yaw, true) -- make orient match rotation
+    mover_orient.attach_to(mover_pitch, 0,0,0,relative)
+    mover_pitch.attach_to(mover_yaw, 0,0,0,relative)
+    mover_yaw.copy_rotation_from(temp_obj0, true) -- make sure they are perfectly aligned, potentially unneeded
+    -- then set up the direction detecting helpers
+    prong_left = mover_yaw.place_at_me(flag_stand, none, none, 0,0,0, none)
+    prong_right = mover_yaw.place_at_me(flag_stand, none, none, 0,0,0, none)
+    prong_up = mover_yaw.place_at_me(flag_stand, none, none, 0,0,0, none)
+    prong_down = mover_yaw.place_at_me(flag_stand, none, none, 0,0,0, none)
+    -- setup the thing that we use for movement
+    mover_scalable = mover_pitch.place_at_me(flag_stand, none, none, 0,0,0, none)
+    mover_scalable.copy_rotation_from(mover_pitch, true)
+    mover_scalable.attach_to(mover_orient,0,0,0,relative)
+
+    -- setup the team stuff for our base object (mover yaw???)
+    mover_yaw.team = defending_team -- currently contesting team??
+    mover_yaw.set_shape(cylinder, 10,10,10)
+    mover_yaw.set_shape_visibility(everyone)
+    -- setup boundaries for cargo physics
+    mover_orient.set_shape(box, 10,10,10,10)
+    mover_orient.set_shape_visibility(everyone)
+
+
+    -- map out the nodes
+    for each object with label "node" do
+        if current_object.spawn_sequence == 0 then
+            curr_node = current_object
+        end
+    end
+    if curr_node != no_object then -- failsafe
+        iter_node = curr_node
+        iter_node_sequence = 1
+        recurse_find_next_node()
+    end
+end
+
+
+
+-- // /////////////////////////////// //
+-- // ENABLE PAYLOAD MOVEMENT SCRIPT //
+-- // ///////////////////////////// //
+do
+    payload_moving = 1
+    temp_team0 = no_team
+    for each player do
+        if mover_yaw.shape_contains(current_player.biped) then
+            -- inherit first team seen in hill, if any other players in hill dont match that team then the enemy team must be in the hill
+            if temp_team0 == no_team then 
+                temp_team0 = current_player.team 
+            end
+            if temp_team0 != current_player.team then 
+                temp_team0 = attacking_team -- ensure we found the enemy team in the hill
+            end
+        end
+    end
+    if temp_team0 != defending_team then -- no teams or wrong team controlling payload
+        payload_moving = 0
+        mover_yaw.team = attacking_team
+        if temp_team0 == no_team then
+            mover_yaw.team = neutral_team
+        end
+    end
+end
+
+-- // //////////////////////// //
+-- // PAYLOAD MOVEMENT SCRIPT //
+-- // ////////////////////// // 
+alias left_side = temp_obj0 -- input
+alias right_side = temp_obj1 -- input
+alias last_direction = temp_num3 -- input
+alias paused_ticks = temp_num0 -- input/output
+alias direction = temp_num2 -- output
+function get_direction()
+    direction = 0 -- if they're both the same length
+    if paused_ticks == 0 then
+        left_side.detach()
+        right_side.detach()
+        temp_num0 = left_side.get_distance_to(curr_node)
+        temp_num1 = right_side.get_distance_to(curr_node)
+        if temp_num0 < temp_num1 then direction = 2 end -- left side
+        if temp_num1 < temp_num0 then direction = 1 end -- right side
+        paused_ticks = 0 -- rest value as we used temp_num0 for distance measurements
+        -- the resulting direction is differnt, then output pause ticks to stall rotation
+        if direction != last_direction and last_direction != 0 then
+            paused_ticks = 5
+        end
+    end
+    if paused_ticks > 0 then -- this garantees that the last direction will be set to 0 after pausing, allowing it to switch direction freely after the pause
+        paused_ticks -= 1
+    end
+end
+if mover_yaw != no_object and payload_moving != 0 then
+    mover_yaw.team = defending_team
+    if curr_node.shape_contains(mover_yaw) then
+        curr_node = curr_node.next_node
+        if curr_node == no_object then
+            game.end_round()
+        end
+    end
+    -- process left/right direction (dir: 2 left, 1 right)
+    left_side = prong_left
+    right_side = prong_right
+    last_direction = horz_last_direction
+    paused_ticks = horz_rot_paused_ticks
+    get_direction()
+    horz_rot_paused_ticks = paused_ticks
+    horz_last_direction = direction
+    prong_left.attach_to(mover_orient,  0,-4,0, relative)
+    prong_right.attach_to(mover_orient, 0, 4,0, relative)
+    -- process down/up direction (dir: 2 down, 1 up)
+    left_side = prong_down
+    right_side = prong_up
+    last_direction = vert_last_direction
+    paused_ticks = vert_rot_paused_ticks
+    get_direction()
+    vert_rot_paused_ticks = paused_ticks
+    vert_last_direction = direction
+    prong_down.attach_to(mover_orient, 0,0,-4, relative)
+    prong_up.attach_to(mover_orient,   0,0, 4, relative)
+
+    -- perform rotations
+    if horz_last_direction == 2 then mover_yaw.face_toward(mover_yaw, turn_factor, 1,0) end -- turn left
+    if horz_last_direction == 1 then mover_yaw.face_toward(mover_yaw, turn_factor,-1,0) end -- turn right
+    mover_pitch.detach()
+    if vert_last_direction == 2 then mover_pitch.face_toward(mover_pitch, turn_factor,-1,0) end -- turn down
+    if vert_last_direction == 1 then mover_pitch.face_toward(mover_pitch, turn_factor, 1,0) end -- turn up
+    mover_pitch.attach_to(mover_yaw, 0,0,0,relative) -- add pitch back to the stack
+    mover_agent.copy_rotation_from(mover_orient, true) -- apply rotation -- TODO we wont need this in the future
+    
+    -- attach and offset mover agent
+    mover_scalable.detach()
+    mover_agent.attach_to(mover_scalable,1,0,0,relative) -- do this first so it doesn't pass over any bad information
+    mover_scalable.set_scale(movement_speed)
+    mover_scalable.copy_rotation_from(mover_scalable, true)
+    mover_agent.detach()
+    -- reset scaler offset size (this is so the speed value can be changed dynamically)
+    mover_scalable.set_scale(100)
+    mover_scalable.copy_rotation_from(mover_scalable, true)
+    mover_scalable.attach_to(mover_orient, 0,0,0,relative)
+    
+    -- complete movement by moving base
+    mover_yaw.attach_to(mover_agent, 0,0,0,relative)
+    mover_yaw.detach()
+end
+
+for each object with label "node" do
+    current_object.set_waypoint_visibility(no_one)
+end
+do
+    curr_node.set_waypoint_visibility(everyone)
+    curr_node.set_waypoint_icon(bullseye)
+    curr_node.next_node.set_waypoint_visibility(everyone)
+    curr_node.next_node.set_waypoint_icon(diamond)
+
+    -- calc current progress distance
+    temp_num0 = mover_yaw.get_distance_to(curr_node)
+    temp_num1 = curr_node.cum_dist
+    temp_num1 -= temp_num0
+    if temp_num1 < 0 then -- fail safe for when the guy hasn't made it to the first node yet
+        temp_num1 = 0
+    end
+    progress_widget.set_meter_params(number, temp_num1, total_distance)
+    progress_widget.set_value_text("Payload Progress")
+    if payload_moving != 0 then
+        defending_team.score = temp_num1
+    end
+end
+
+
+
+
+-- // /////////////////// //
+-- // CAGO PHYSICS STUFF //
+-- // ///////////////// //
+-- cargo phys aliases
+alias knee = object.object[0] -- used as 'tip' or 'point' in cascade operation, but when completed becomes the knee/joint of a connection
+alias foot = object.object[1] -- opposite end of the triangle object formation
+alias cascade_length = 10
+alias cascade_amount = 50
+
+alias counter = temp_num0 -- input
+alias src = temp_obj0 -- input
+alias dst = temp_obj1 -- input
+function cascade_loop()
+	src.face_toward(dst.knee, 0,0,0)
+	dst.face_toward(src.knee, 0,0,0)
+	counter += 1
+	if counter < cascade_amount then
+		cascade_loop()
+	end
+end
+--    src = temp_obj0 -- input/output
+--    dst = temp_obj1 -- input/output
+alias rotation_helper = temp_obj2 -- internal
+function cascade() 
+	-- DEBUG: too far apart exception
+	temp_num0 = src.get_distance_to(dst)
+	temp_num0 /= 2 -- we need to check if distance is greater than twice the cascade length, alternatively we check if half the distance is greater than a single cascade length
+	if temp_num0 > cascade_length then
+		game.show_message_to(all_players, none, "failure: range exceeded, increase the 'cascade_length'")
+	end
+	--
+
+	-- essentially create editable versions of the locations
+	src = src.place_between_me_and(src, capture_plate, 0)
+	dst = dst.place_between_me_and(dst, flag_stand, 0)
+	
+	-- create rotation helper to orient our locations towards another
+	-- NOTE: we could replace this with a global helper object, so that it only needs to be spawned in once, however reseting coords might not be the easiest, which is probably why we always spawned it from scratch in the original pitch axis functions
+	rotation_helper = src.place_at_me(sound_emitter_alarm_2, none,none, 0,0,0, none)
+	rotation_helper.attach_to(src, 0,0,0, relative)
+	rotation_helper.detach()
+	-- then offset rotation, converting roll to pitch
+	rotation_helper.face_toward(rotation_helper,0,-1,0)
+	src.attach_to(rotation_helper, 0,0,0,relative)
+	-- then correct our src's yaw to face towards dst
+	rotation_helper.face_toward(dst, 0,0,0)
+	src.detach()
+	rotation_helper.delete() -- no longer needed
+	-- we can simply copy the rotation over to dst as well, so they will now have the exact same pitch heading
+	dst.copy_rotation_from(src, true)
+	
+	-- setup the edge things
+	src.knee = src.place_between_me_and(src, flag_stand, 0)
+	dst.knee = dst.place_between_me_and(src, sound_emitter_alarm_2, 0)
+	-- src knee needs to have the same orientation, so we can rotate it later
+	src.knee.copy_rotation_from(src, true)
+
+	src.knee.attach_to(src, cascade_length,0,0, relative)
+	dst.knee.attach_to(dst, cascade_length,0,0, relative)
+	
+	-- apply a rotation to dst, so if the two points are exactly ontop of another, they wouldn't fail to find a common middle point
+	-- plus this should also make it find common middle points more consistently
+	-- NOTE: this actually did not even nearly work as intended, it subtly broke a lot of the mechanics, no idea why
+	--dst.face_toward(dst, 0,-1,0)
+
+	-- call the cascade recursive function
+	counter = 0
+	cascade_loop()
+	dst.knee.delete() -- no longer needed
+	
+	-- fixup src.knee 
+	src.knee.detach()
+	src.knee.face_toward(dst, 0,0,0)
+	src.knee.attach_to(src, cascade_length,0,0, relative)
+	-- bind foot to our thing
+	dst.attach_to(src.knee, cascade_length,0,0, relative)
+	src.foot = dst
+end
+
+on local: do
+    for each player do
+        if current_player.biped != no_object then
+            if not mover_orient.shape_contains(current_player.biped) and current_player.relative_pos != no_object then
+                current_player.relative_pos.delete()
+            end
+            if mover_orient.shape_contains(current_player.biped) then
+                if current_player.global_pos == no_object then
+                    current_player.global_pos = current_player.biped.place_at_me(flag_stand, none, none, 0,0,0, none)
+                end
+                -- check if player already has an offset ready to go
+                if current_player.relative_pos != no_object then
+                    -- first we generate our offset attach for the difference between our player and where they were last cargo tick
+                    src = current_player.global_pos
+                    dst = current_player.biped
+                    cascade()
+                    temp_obj3 = src
+                    -- then we stick that offset to our stored relative position, so the foot of temp_obj3 is our new relative position
+                    temp_obj0 = current_player.relative_pos
+                    temp_obj3.attach_to(temp_obj0.foot, 0,0,0, relative)
+                    
+                    -- then we create a new offset attach from the player to the new relative position
+                    src = current_player.biped
+                    dst = temp_obj3.foot
+                    cascade()
+                    -- attach the offset to the player (its already at the player, just not attached)
+                    src.attach_to(current_player.biped, 0,0,0, relative)
+                    -- complete the offset by attaching the player to the foot of this, automaticallly detaching them & maintaining momentumn
+                    current_player.biped.attach_to(src.foot, 0,0,0, relative)
+
+                    -- cleanup
+                    src.delete()
+                    temp_obj3.delete()
+                    current_player.relative_pos.delete()
+                end
+                -- update previous position
+                current_player.global_pos.attach_to(current_player.biped, 0,0,0, relative)
+                current_player.global_pos.detach()
+                -- generate current relative position
+                src = mover_orient
+                dst = current_player.biped
+                cascade()
+                src.attach_to(mover_orient, 0,0,0, relative)
+                current_player.relative_pos = src
+            end
+        end
+    end
+end

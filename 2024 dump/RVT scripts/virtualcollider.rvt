@@ -1,0 +1,125 @@
+
+
+-- NOTE: script abandonded as it can only work for perfect cubes, not rectangular shape boundaries
+--       thus not effective enough to warrant as much work
+--       only stuff i didn't get solved was the dumb orientation (we have to convert pitch to roll before testing) for the player get direction 
+
+declare global.object[0] with network priority local
+declare global.object[1] with network priority local
+
+alias base = global.object[0]
+alias yaw_obj = global.object[1]
+alias pitch_obj = global.object[2]
+alias direction_obj = global.object[3]
+alias orientation_obj = global.object[4]
+alias lookat_wrapper = global.object[5]
+alias yaw_orientation = global.object[6]
+
+alias temp_obj0 = global.object[7]
+
+alias debug_widget = script_widget[0]
+
+alias temp_num0 = global.number[0]
+
+-- // ////////////////////// //
+-- // INITIALIZE EVERYTHING //
+-- // //////////////////// //
+if base == no_object then
+    base = get_random_object("p_base", no_object)
+    -- setup 2axis lookat objects
+    pitch_obj = base.place_between_me_and(base, flag_stand, 0)
+    yaw_obj = pitch_obj.place_at_me(flag_stand, none, none, 0, 0, 0, none)
+    lookat_wrapper = pitch_obj.place_at_me(sound_emitter_alarm_2, none, none, 0, 0, 0, none)
+    direction_obj = pitch_obj.place_at_me(flag_stand, none, none, 0, 0, 0, none)
+
+    orientation_obj = base.place_between_me_and(base, capture_plate, 0)
+    orientation_obj.face_toward(orientation_obj, -1, 0, 0)
+    temp_obj0 = base.place_between_me_and(base, sniper_rifle, 0)
+    temp_obj0.copy_rotation_from(orientation_obj, true)
+    temp_obj0.attach_to(orientation_obj, 0,0,0,relative)
+
+    --direction_obj.attach_to(yaw_obj, 0,0,0,relative)
+    yaw_obj.face_toward(yaw_obj,0,-1,0)
+    
+    --direction_obj.detach()
+    direction_obj.attach_to(pitch_obj, 0,0,0, relative)
+
+    pitch_obj.attach_to(yaw_obj, 0,0,0, relative)
+    yaw_obj.attach_to(lookat_wrapper, 0,0,0, relative)
+    -- configure lookat wrapper
+    lookat_wrapper.copy_rotation_from(base, true)
+    lookat_wrapper.attach_to(base, 0,0,0, relative)
+end
+
+
+if player[0].biped != no_object and base != no_object then
+    lookat_wrapper.detach()
+    -- detach and make the things look at the player
+    yaw_obj.detach()
+    yaw_obj.face_toward(player[0].biped, 0,0,0)
+    pitch_obj.detach()
+    pitch_obj.face_toward(player[0].biped, 0,0,0)
+    pitch_obj.attach_to(yaw_obj, 0,0,0, relative)
+    yaw_obj.attach_to(lookat_wrapper, 0,0,0, relative)
+    lookat_wrapper.copy_rotation_from(orientation_obj, true)
+    -- we need to convert the local roll rotation to 
+    for each object with label "rot_copy" do
+        current_object.copy_rotation_from(direction_obj, true)
+    end
+    -- figure out what direction we're facing
+    temp_num0 = direction_obj.get_orientation()
+    if temp_num0 == 0 then
+        debug_widget.set_text("NONE")
+    end
+    if temp_num0 == 1 then
+        debug_widget.set_text("top")
+    end
+    if temp_num0 == 2 then
+        debug_widget.set_text("right")
+    end
+    if temp_num0 == 3 then
+        debug_widget.set_text("back")
+    end
+    if temp_num0 == 4 then
+        debug_widget.set_text("front")
+    end
+    if temp_num0 == 5 then
+        debug_widget.set_text("left")
+    end
+    if temp_num0 == 6 then
+        debug_widget.set_text("bottom")
+    end
+
+    lookat_wrapper.copy_rotation_from(base, true)
+    lookat_wrapper.attach_to(base, 0,0,0, relative)
+end
+
+
+
+-- // ///////////////// //
+-- // LOCAL CODE STUFF //
+-- // /////////////// //
+on local: do
+-- then eject player from boundary script
+for each player do
+    if base.shape_contains(current_player.biped) then
+        
+        
+        -- make object face towrads on both axis
+
+        -- attach this object to another with the same rotation as our base object
+
+        -- make that object copy rotation form some object with a basic rotation configuration
+
+        -- run get orientation action to determine which face that player is in
+
+        -- switch case to push player depending on which face they're closest to
+        
+    end
+end
+end
+
+
+
+
+

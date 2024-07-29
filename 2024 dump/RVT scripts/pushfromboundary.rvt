@@ -1,0 +1,66 @@
+
+-- GLOBAL CONTROLS --
+alias offset_scale = 5 -- this controls the speed that players are ejected from virtual boundaries
+
+
+
+alias base = global.object[0]
+-- storing as globals so they dont have to be regenerated every single time
+alias lookat_yaw_obj = global.object[1]
+alias lookat_pitch_obj = global.object[2]
+alias lookat_offset_obj = global.object[3]
+
+alias temp_obj0 = global.object[4]
+alias temp_obj1 = global.object[5]
+
+
+-- //// INPUTS ////
+alias lookat_obj = temp_obj0
+alias basis = temp_obj1
+function lookat_and_extend_offsetobj()
+    -- position & rotate yaw 
+    lookat_yaw_obj.attach_to(basis, 0,0,0, relative)
+    lookat_yaw_obj.detach()  
+    lookat_yaw_obj.face_toward(lookat_obj,0,0,0)
+    -- rotate pitch
+    lookat_pitch_obj.detach()
+    lookat_pitch_obj.face_toward(lookat_obj,0,0,0)
+    lookat_pitch_obj.attach_to(lookat_yaw_obj, 0,0,0, relative)
+end
+function lookat_prepare_thingos()
+    lookat_yaw_obj.delete() -- deletes all the other guys too
+    -- setup 2axis lookat & extend objects
+    lookat_pitch_obj = base.place_between_me_and(base, flag_stand, 0)
+    lookat_yaw_obj = lookat_pitch_obj.place_at_me(flag_stand, none, none, 0,0,0, none)
+    lookat_yaw_obj.face_toward(lookat_yaw_obj,0,-1,0)
+    lookat_pitch_obj.attach_to(lookat_yaw_obj, 0,0,0, relative)
+    -- extension 'offset' object
+    lookat_offset_obj = lookat_yaw_obj.place_at_me(flag_stand, none, none, 0,0,0, none)
+    lookat_offset_obj.attach_to(lookat_pitch_obj, 1,0,0, relative)
+    -- scale attachment distance, or rather: apply eject speed
+    lookat_yaw_obj.set_scale(offset_scale)
+    lookat_yaw_obj.copy_rotation_from(lookat_yaw_obj, true) -- update lookat_yaw_obj's scale
+end
+
+
+
+-- // ////////////////////// //
+-- // INITIALIZE EVERYTHING //
+-- // //////////////////// //
+if base == no_object then
+    base = get_random_object("p_base", no_object)
+end
+
+for each object with label "collision" do
+    current_object.set_shape_visibility(everyone)
+    for each player do
+        if current_object.shape_contains(current_player.biped) then
+            basis = current_object
+            lookat_obj = current_player.biped
+            lookat_prepare_thingos()
+            lookat_and_extend_offsetobj()
+            lookat_yaw_obj.attach_to(current_player.biped, 0, 0, 0, relative)
+            current_player.biped.attach_to(lookat_offset_obj, 0, 0, 0, relative)
+        end
+    end
+end
